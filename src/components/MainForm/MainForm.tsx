@@ -1,10 +1,8 @@
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { Button } from '@mui/material'
+import { Box, Button, Paper } from '@mui/material'
 import FormViews from '../../views/FormViews/FormViews'
 import { IFormInput } from '../../types/formTypes'
-import { style } from '@mui/system'
-
-import styles from './MainForm.module.scss'
+import { Container } from '@mui/material'
 
 const defaultValues = {
 	firstName: '',
@@ -15,6 +13,7 @@ const defaultValues = {
 	date: new Date(),
 	chip: [],
 	checkboxValue: [],
+	string: '',
 }
 
 const MainForm: React.FC = () => {
@@ -24,12 +23,18 @@ const MainForm: React.FC = () => {
 	const onSubmit: SubmitHandler<IFormInput> = data => console.log(data)
 
 	return (
-		<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-			<FormViews control={control} setValue={setValue} />
-			<Button type='submit' variant='outlined'>
-				Submit
-			</Button>
-		</form>
+		<Container maxWidth='sm'>
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<Box sx={{ mt: 6 }}>
+					<Paper sx={{ p: 3, borderRadius: '12px' }} elevation={2}>
+						<FormViews control={control} setValue={setValue} />
+						<Button type='submit' variant='contained'>
+							Submit
+						</Button>
+					</Paper>
+				</Box>
+			</form>
+		</Container>
 	)
 }
 
