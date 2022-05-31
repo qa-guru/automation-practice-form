@@ -1,21 +1,20 @@
-import {
-	FormControl,
-	FormLabel,
-	FormControlLabel,
-	Checkbox,
-} from '@mui/material'
+import { FormLabel, FormControlLabel, Checkbox } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { Controller } from 'react-hook-form'
 import { IFormInputProps } from '../../types/formTypes'
 
 const options = [
 	{
-		label: 'Checkbox Option 1',
-		value: '1',
+		label: 'Sports',
+		value: 'Sports',
 	},
 	{
-		label: 'Checkbox Option 2',
-		value: '2',
+		label: 'Reading',
+		value: 'Reading',
+	},
+	{
+		label: 'Music',
+		value: 'Music',
 	},
 ]
 
@@ -44,9 +43,8 @@ const FormInputMultiCheckbox: React.FC<IFormInputProps> = ({
 	}, [selectedItems])
 
 	return (
-		<FormControl size={'small'} variant={'outlined'}>
+		<div>
 			<FormLabel component='legend'>{label}</FormLabel>
-
 			<div>
 				{options.map((option: any) => {
 					return (
@@ -77,7 +75,7 @@ const FormInputMultiCheckbox: React.FC<IFormInputProps> = ({
 					)
 				})}
 			</div>
-		</FormControl>
+		</div>
 	)
 }
 

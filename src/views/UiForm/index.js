@@ -3,6 +3,7 @@ import FormInputRadio from './FormInputRadio'
 import FormInputDate from './FormInputDate'
 import FormInputChip from './FormInputChip'
 import FormInputMultiCheckbox from './FormInputCheckbox'
+import FormInputSelect from './FormInputSelect'
 
 export default {
 	FormInputText,
@@ -10,4 +11,5 @@ export default {
 	FormInputDate,
 	FormInputChip,
 	FormInputMultiCheckbox,
+	FormInputSelect,
 }

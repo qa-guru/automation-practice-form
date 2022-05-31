@@ -14,9 +14,10 @@ export interface IFormInput {
 	date: Date
 	chip: any[]
 	checkboxValue: string[]
+	select: string
 }
 
-export interface IFormViews {
+export interface IFormViewsProps {
 	control: any
 	setValue?: any
 }

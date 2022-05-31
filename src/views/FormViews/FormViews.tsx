@@ -1,10 +1,16 @@
 import React from 'react'
-import { IFormViews } from '../../types/formTypes'
-import Ui from '../ui'
+import { IFormViewsProps } from '../../types/formTypes'
+import Ui from '../UiForm'
+import styles from '../FormViews/FormViews.module.scss'
+import { FormLabel, Typography } from '@mui/material'
 
-const FormViews: React.FC<IFormViews> = ({ control, setValue }) => {
+const FormViews: React.FC<IFormViewsProps> = ({ control, setValue }) => {
 	return (
-		<div>
+		<div className={styles.form}>
+			<Typography sx={{ mb: 2 }} variant='h5'>
+				Student Registration Form
+			</Typography>
+			<FormLabel>Name</FormLabel>
 			<Ui.FormInputText
 				name='firstName'
 				control={control}
@@ -24,7 +30,12 @@ const FormViews: React.FC<IFormViews> = ({ control, setValue }) => {
 				control={control}
 				setValue={setValue}
 				name='checkboxValue'
-				label='Checkbox Input'
+				label='Hobbies'
+			/>
+			<Ui.FormInputSelect
+				name='select'
+				control={control}
+				label='Select'
 			/>
 		</div>
 	)
