@@ -1,7 +1,7 @@
 import { MenuItem, InputLabel, Select } from '@mui/material'
 import React from 'react'
 import { Controller } from 'react-hook-form'
-import { IFormInputProps } from '../../types/formTypes'
+import { IFormInputProps } from '../../types'
 
 const options = [
 	{
@@ -42,7 +42,7 @@ const FormInputSelect: React.FC<IFormInputProps> = ({
 			<InputLabel>{label}</InputLabel>
 			<Controller
 				render={({ field: { onChange, value } }) => (
-					<Select onChange={onChange} value={value}>
+					<Select size='small' onChange={onChange} value={value}>
 						{generateSingleOptions()}
 					</Select>
 				)}

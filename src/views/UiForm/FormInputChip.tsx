@@ -8,7 +8,7 @@ import {
 } from '@mui/material'
 import React from 'react'
 import { Controller } from 'react-hook-form'
-import { IFormInputProps } from '../../types/formTypes'
+import { IFormInputProps } from '../../types'
 
 const ITEM_HEIGHT = 48
 const ITEM_PADDING_TOP = 8
@@ -35,10 +35,15 @@ const subjects = [
 	'Physical',
 ]
 
-const FormInputChip: React.FC<IFormInputProps> = ({ control, label, name }) => {
+const FormInputChip: React.FC<IFormInputProps> = ({
+	control,
+	label,
+	name,
+	placeholder,
+}) => {
 	const generateSingleSubjects = () => {
 		return subjects.map(subject => (
-			<MenuItem key={subject} value={subject}>
+			<MenuItem placeholder={placeholder} key={subject} value={subject}>
 				{subject}
 			</MenuItem>
 		))
@@ -46,18 +51,17 @@ const FormInputChip: React.FC<IFormInputProps> = ({ control, label, name }) => {
 
 	return (
 		<>
-			<InputLabel id='demo-multiple-chip-label'>{label}</InputLabel>
+			<InputLabel>{label}</InputLabel>
 			<Controller
 				control={control}
 				name={name}
 				render={({ field: { onChange, value } }) => (
 					<Select
-						labelId='demo-multiple-chip-label'
-						id='demo-multiple-chip'
+						size='small'
 						multiple
 						value={value}
 						onChange={onChange}
-						input={<OutlinedInput id='select-multiple-chip' />}
+						input={<OutlinedInput />}
 						renderValue={selected => (
 							<Box
 								sx={{

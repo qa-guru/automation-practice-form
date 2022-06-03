@@ -3,6 +3,7 @@ export interface IFormInputProps {
 	control: any
 	label: string
 	setValue?: any
+	placeholder?: string
 }
 
 export interface IFormInput {
@@ -15,6 +16,7 @@ export interface IFormInput {
 	chip: any[]
 	checkboxValue: string[]
 	select: string
+	slider: number
 }
 
 export interface IFormViewsProps {

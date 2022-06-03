@@ -1,7 +1,7 @@
-import { FormLabel, FormControlLabel, Checkbox } from '@mui/material'
+import { FormControlLabel, Checkbox, InputLabel } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { Controller } from 'react-hook-form'
-import { IFormInputProps } from '../../types/formTypes'
+import { IFormInputProps } from '../../types'
 
 const options = [
 	{
@@ -18,7 +18,7 @@ const options = [
 	},
 ]
 
-const FormInputMultiCheckbox: React.FC<IFormInputProps> = ({
+const FormInputCheckbox: React.FC<IFormInputProps> = ({
 	name,
 	control,
 	setValue,
@@ -29,9 +29,7 @@ const FormInputMultiCheckbox: React.FC<IFormInputProps> = ({
 	const handleSelect = (value: any) => {
 		const isPresent = selectedItems.indexOf(value)
 		if (isPresent !== -1) {
-			const remaining = selectedItems.filter(
-				(item: any) => item !== value
-			)
+			const remaining = selectedItems.filter((item: any) => item !== value)
 			setSelectedItems(remaining)
 		} else {
 			setSelectedItems((prevItems: any) => [...prevItems, value])
@@ -44,7 +42,7 @@ const FormInputMultiCheckbox: React.FC<IFormInputProps> = ({
 
 	return (
 		<div>
-			<FormLabel component='legend'>{label}</FormLabel>
+			<InputLabel>{label}</InputLabel>
 			<div>
 				{options.map((option: any) => {
 					return (
@@ -52,17 +50,11 @@ const FormInputMultiCheckbox: React.FC<IFormInputProps> = ({
 							control={
 								<Controller
 									name={name}
-									render={({
-										field: { value, onChange },
-									}) => {
+									render={() => {
 										return (
 											<Checkbox
-												checked={selectedItems.includes(
-													option.value
-												)}
-												onChange={() =>
-													handleSelect(option.value)
-												}
+												checked={selectedItems.includes(option.value)}
+												onChange={() => handleSelect(option.value)}
 											/>
 										)
 									}}
@@ -79,4 +71,4 @@ const FormInputMultiCheckbox: React.FC<IFormInputProps> = ({
 	)
 }
 
-export default FormInputMultiCheckbox
+export default FormInputCheckbox

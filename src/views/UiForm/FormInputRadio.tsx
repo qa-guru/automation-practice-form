@@ -1,23 +1,20 @@
-import { FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material'
+import { FormControlLabel, InputLabel, Radio, RadioGroup } from '@mui/material'
 import React from 'react'
 import { Controller } from 'react-hook-form'
-import { IFormInputProps } from '../../types/formTypes'
+import { IFormInputProps } from '../../types'
 
 const options = [
 	{
 		label: 'Male',
 		value: 'Male',
-		id: 1,
 	},
 	{
 		label: 'Female',
 		value: 'Female',
-		id: 2,
 	},
 	{
 		label: 'Other',
 		value: 'Other',
-		id: 3,
 	},
 ]
 
@@ -32,25 +29,19 @@ const FormInputRadio: React.FC<IFormInputProps> = ({
 				value={singleOptionValue.value}
 				control={<Radio />}
 				label={singleOptionValue.label}
-				key={singleOptionValue.id}
+				key={singleOptionValue.value}
 			/>
 		))
 	}
 
 	return (
 		<>
-			<FormLabel component='legend'>{label}</FormLabel>
+			<InputLabel>{label}</InputLabel>
 			<Controller
 				name={name}
 				control={control}
 				render={({ field: { onChange, value } }) => (
-					<RadioGroup
-						row
-						aria-labelledby='demo-row-radio-buttons-group-label'
-						name='row-radio-buttons-group'
-						value={value}
-						onChange={onChange}
-					>
+					<RadioGroup row value={value} onChange={onChange}>
 						{generateRadioOptions()}
 					</RadioGroup>
 				)}

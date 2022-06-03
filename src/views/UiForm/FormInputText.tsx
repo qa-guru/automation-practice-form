@@ -1,21 +1,31 @@
-import { TextField } from '@mui/material'
+import { InputLabel, TextField } from '@mui/material'
 import { Controller } from 'react-hook-form'
-import { IFormInputProps } from '../../types/formTypes'
+import { IFormInputProps } from '../../types'
 
-const FormInputText: React.FC<IFormInputProps> = ({ control, label, name }) => {
+const FormInputText: React.FC<IFormInputProps> = ({
+	control,
+	label,
+	name,
+	placeholder,
+}) => {
 	return (
-		<Controller
-			name={name}
-			control={control}
-			render={({ field: { onChange, value } }) => (
-				<TextField
-					variant='outlined'
-					value={value}
-					label={label}
-					onChange={onChange}
-				/>
-			)}
-		/>
+		<div>
+			<InputLabel>{label}</InputLabel>
+			<Controller
+				name={name}
+				control={control}
+				render={({ field: { onChange, value } }) => (
+					<TextField
+						size='small'
+						sx={{ width: '100%' }}
+						variant='outlined'
+						value={value}
+						onChange={onChange}
+						placeholder={placeholder}
+					/>
+				)}
+			/>
+		</div>
 	)
 }
 
