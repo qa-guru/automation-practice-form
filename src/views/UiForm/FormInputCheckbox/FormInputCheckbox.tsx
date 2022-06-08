@@ -1,7 +1,7 @@
 import { FormControlLabel, Checkbox, InputLabel } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { Controller } from 'react-hook-form'
-import { IFormInputProps } from '../../types'
+import { IFormInputProps } from '../types'
 
 const options = [
 	{
@@ -26,10 +26,10 @@ const FormInputCheckbox: React.FC<IFormInputProps> = ({
 }) => {
 	const [selectedItems, setSelectedItems] = useState<any>([])
 
-	const handleSelect = (value: any) => {
+	const handleSelect = (value: string) => {
 		const isPresent = selectedItems.indexOf(value)
 		if (isPresent !== -1) {
-			const remaining = selectedItems.filter((item: any) => item !== value)
+			const remaining = selectedItems.filter((item: string) => item !== value)
 			setSelectedItems(remaining)
 		} else {
 			setSelectedItems((prevItems: any) => [...prevItems, value])
@@ -41,12 +41,14 @@ const FormInputCheckbox: React.FC<IFormInputProps> = ({
 	}, [selectedItems])
 
 	return (
-		<div>
+		<>
 			<InputLabel>{label}</InputLabel>
 			<div>
-				{options.map((option: any) => {
+				{options.map(option => {
 					return (
 						<FormControlLabel
+							label={option.label}
+							key={option.value}
 							control={
 								<Controller
 									name={name}
@@ -61,13 +63,11 @@ const FormInputCheckbox: React.FC<IFormInputProps> = ({
 									control={control}
 								/>
 							}
-							label={option.label}
-							key={option.value}
 						/>
 					)
 				})}
 			</div>
-		</div>
+		</>
 	)
 }
 

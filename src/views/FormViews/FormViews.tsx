@@ -1,9 +1,15 @@
-import React from 'react'
-import { IFormViewsProps } from '../../types'
+import React, { useState } from 'react'
+import { IFormViewsProps } from './types'
 import Ui from '../UiForm'
 import { Box, Grid, Typography } from '@mui/material'
 
-const FormViews: React.FC<IFormViewsProps> = ({ control, setValue }) => {
+const FormViews: React.FC<IFormViewsProps> = ({
+	control,
+	setValue,
+	errors,
+}) => {
+	const [cityState, setCityState] = useState('')
+
 	return (
 		<>
 			<Typography sx={{ mb: 1 }} variant='h5'>
@@ -16,7 +22,6 @@ const FormViews: React.FC<IFormViewsProps> = ({ control, setValue }) => {
 							name='firstName'
 							control={control}
 							label='First Name'
-							placeholder='Enter'
 						/>
 					</Grid>
 					<Grid item xs={8}>
@@ -24,7 +29,6 @@ const FormViews: React.FC<IFormViewsProps> = ({ control, setValue }) => {
 							name='lastName'
 							control={control}
 							label='Last Name'
-							placeholder='Enter'
 						/>
 					</Grid>
 				</Grid>
@@ -39,32 +43,35 @@ const FormViews: React.FC<IFormViewsProps> = ({ control, setValue }) => {
 						/>
 					</Grid>
 					<Grid item xs={8}>
-						<Ui.FormInputText
-							name='phone'
-							control={control}
-							label='Phone'
-							placeholder='Mobile number'
-						/>
+						<Ui.FormInputText name='phone' control={control} label='Phone' />
 					</Grid>
 				</Grid>
 
 				<Grid container spacing={2} columns={16}>
 					<Grid item xs={8}>
 						<Ui.FormInputSelectOption
-							label='Сities'
-							name='selectOption'
+							label='Select Language'
+							name='language'
 							control={control}
-							placeholder='Select'
 						/>
 					</Grid>
 					<Grid item xs={8}>
-						<Ui.FormInputDate name='date' control={control} label='Date' />
+						<Ui.FormInputDate
+							name='birthDate'
+							control={control}
+							label='Birthdate'
+						/>
 					</Grid>
 				</Grid>
 
 				<Grid container spacing={2} columns={16}>
 					<Grid item xs={8}>
-						<Ui.FormInputRadio name='radio' control={control} label='Gender' />
+						<Ui.FormInputRadio
+							name='radio'
+							control={control}
+							label='Gender'
+							errors={errors}
+						/>
 					</Grid>
 					<Grid item xs={8}>
 						<Ui.FormInputCheckbox
@@ -76,19 +83,43 @@ const FormViews: React.FC<IFormViewsProps> = ({ control, setValue }) => {
 					</Grid>
 				</Grid>
 
-				<Ui.FormInputChip
-					name='chip'
-					control={control}
-					label='Subjects'
-					placeholder='Select'
-				/>
-				<Ui.FormInputSelect name='select' control={control} label='Select' />
+				<Ui.FormInputChip name='chip' control={control} label='Subjects' />
+
+				<Grid container spacing={2} columns={16}>
+					<Grid item xs={8}>
+						<Ui.FormInputSelect
+							setCityState={setCityState}
+							name='state'
+							control={control}
+							label='Select State'
+							setValue={setValue}
+						/>
+					</Grid>
+					<Grid item xs={8}>
+						<Ui.FormInputSelect
+							disabled={cityState === ''}
+							name='city'
+							control={control}
+							label='Select City'
+							setValue={setValue}
+						/>
+					</Grid>
+				</Grid>
+
 				<Ui.FormInputSlider
 					name='slider'
 					control={control}
 					setValue={setValue}
 					label='Slider Input'
 				/>
+
+				<Ui.FormInputTextArea
+					name='address'
+					label='Address'
+					control={control}
+				/>
+
+				<Ui.FormInputFile name='file' label='File' control={control} />
 			</Box>
 		</>
 	)

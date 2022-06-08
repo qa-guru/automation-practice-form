@@ -1,6 +1,6 @@
 import React from 'react'
 import { Controller } from 'react-hook-form'
-import { IFormInputProps } from '../../types'
+import { IFormInputProps } from '../types'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { InputLabel, TextField } from '@mui/material'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
@@ -22,7 +22,12 @@ const FormInputDate: React.FC<IFormInputProps> = ({ control, label, name }) => {
 							value={value}
 							onChange={onChange}
 							renderInput={params => (
-								<TextField size='small' sx={{ width: '100%' }} {...params} />
+								<TextField
+									color='success'
+									size='small'
+									sx={{ width: '100%' }}
+									{...params}
+								/>
 							)}
 						/>
 					</LocalizationProvider>

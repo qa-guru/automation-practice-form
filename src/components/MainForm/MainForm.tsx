@@ -1,28 +1,34 @@
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { Box, Button, Paper, Typography } from '@mui/material'
-import FormViews from '../../views/FormViews/FormViews'
-import { IFormInput } from '../../types'
 import { Container } from '@mui/material'
-
-const defaultValues = {
-	firstName: '',
-	lastName: '',
-	email: '',
-	radio: '',
-	phone: '',
-	date: new Date(),
-	chip: [],
-	checkbox: [],
-	select: '',
-	slider: 0,
-	selectOption: '',
-}
+import { IFormInput } from './types'
+import FormViews from '../../views/FormViews/FormViews'
+import FormModalResultViews from '../../views/FormModalResultViews/FormModalResultViews'
+import { defaultValues } from './DefaultValues'
+import React, { useState } from 'react'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { validationSchema } from './Validation'
 
 const MainForm: React.FC = () => {
-	const { handleSubmit, control, setValue, watch } = useForm<IFormInput>({
+	const {
+		handleSubmit,
+		control,
+		setValue,
+		reset,
+		formState: { errors },
+	} = useForm<IFormInput>({
 		defaultValues,
+		resolver: yupResolver(validationSchema),
 	})
-	const onSubmit: SubmitHandler<IFormInput> = data => console.log(data)
+
+	const [data, setData] = useState<object>()
+
+	const onSubmit: SubmitHandler<IFormInput> = data => setData(data)
+
+	const [open, setOpen] = useState(false)
+	const handleOpen = () => setOpen(true)
+
+	const handleClose = () => setOpen(false)
 
 	return (
 		<Container maxWidth='md'>
@@ -32,10 +38,28 @@ const MainForm: React.FC = () => {
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<Box sx={{ mt: 1 }}>
 					<Paper sx={{ p: 3, borderRadius: '12px' }} elevation={2}>
-						<FormViews control={control} setValue={setValue} />
-						<Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
-							<Button type='submit' variant='contained'>
+						<FormViews control={control} setValue={setValue} errors={errors} />
+						{data && (
+							<FormModalResultViews
+								data={data}
+								open={open}
+								onClose={handleClose}
+							/>
+						)}
+
+						<Box
+							sx={{
+								display: 'flex',
+								justifyContent: 'center',
+								mt: 3,
+								gap: 4,
+							}}
+						>
+							<Button onClick={handleOpen} type='submit' variant='contained'>
 								Submit
+							</Button>
+							<Button onClick={() => reset()} variant={'outlined'}>
+								Reset
 							</Button>
 						</Box>
 					</Paper>

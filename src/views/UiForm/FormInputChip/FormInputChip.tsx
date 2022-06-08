@@ -8,7 +8,9 @@ import {
 } from '@mui/material'
 import React from 'react'
 import { Controller } from 'react-hook-form'
-import { IFormInputProps } from '../../types'
+import { IFormInputProps } from '../types'
+
+import styles from './FormInputChip.module.scss'
 
 const ITEM_HEIGHT = 48
 const ITEM_PADDING_TOP = 8
@@ -63,14 +65,8 @@ const FormInputChip: React.FC<IFormInputProps> = ({
 						onChange={onChange}
 						input={<OutlinedInput />}
 						renderValue={selected => (
-							<Box
-								sx={{
-									display: 'flex',
-									flexWrap: 'wrap',
-									gap: 0.5,
-								}}
-							>
-								{selected.map((value: any) => (
+							<Box className={styles.box}>
+								{selected.map((value: string) => (
 									<Chip key={value} label={value} />
 								))}
 							</Box>

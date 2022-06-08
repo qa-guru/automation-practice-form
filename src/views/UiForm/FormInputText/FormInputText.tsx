@@ -1,6 +1,6 @@
 import { InputLabel, TextField } from '@mui/material'
 import { Controller } from 'react-hook-form'
-import { IFormInputProps } from '../../types'
+import { IFormInputProps } from '../types'
 
 const FormInputText: React.FC<IFormInputProps> = ({
 	control,
@@ -9,13 +9,16 @@ const FormInputText: React.FC<IFormInputProps> = ({
 	placeholder,
 }) => {
 	return (
-		<div>
+		<>
 			<InputLabel>{label}</InputLabel>
 			<Controller
 				name={name}
 				control={control}
-				render={({ field: { onChange, value } }) => (
+				render={({ field: { onChange, value }, fieldState: { error } }) => (
 					<TextField
+						color='success'
+						error={!!error}
+						helperText={error ? error.message : null}
 						size='small'
 						sx={{ width: '100%' }}
 						variant='outlined'
@@ -25,7 +28,7 @@ const FormInputText: React.FC<IFormInputProps> = ({
 					/>
 				)}
 			/>
-		</div>
+		</>
 	)
 }
 

@@ -1,7 +1,8 @@
+import { LayoutProps } from './types'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
 
-const Layout = ({ children }: any) => {
+const Layout = ({ children }: LayoutProps) => {
 	return (
 		<>
 			<Header />

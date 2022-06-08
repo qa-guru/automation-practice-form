@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { FormLabel, Slider } from '@mui/material'
 import { Controller } from 'react-hook-form'
-import { IFormInputProps } from '../../types/index'
+import { IFormInputProps } from '../types'
 
 const FormInputSlider = ({
 	name,
@@ -9,13 +9,13 @@ const FormInputSlider = ({
 	setValue,
 	label,
 }: IFormInputProps) => {
-	const [sliderValue, setSliderValue] = React.useState<number>(30)
+	const [sliderValue, setSliderValue] = useState<number>(30)
 
 	useEffect(() => {
 		if (sliderValue) setValue(name, sliderValue)
 	}, [sliderValue])
 
-	const handleChange = (event: any, newValue: number | number[]) => {
+	const handleChange = (_event: Event, newValue: number | number[]) => {
 		setSliderValue(newValue as number)
 	}
 
