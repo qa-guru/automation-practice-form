@@ -1,15 +1,15 @@
-import React from 'react'
-import PracticeForm from '../pages/PracticeForm'
-import Layout from '../shared/ui/Layout/Layout'
+import React from "react";
+import PracticeForm from "../pages/PracticeForm";
+import Layout from "../shared/ui/Layout/Layout";
 
-import './style/index.scss'
+import "./style/index.scss";
 
 const App: React.FC = () => {
-	return (
-		<Layout>
-			<PracticeForm />
-		</Layout>
-	)
-}
+  return (
+    <Layout>
+      <PracticeForm />
+    </Layout>
+  );
+};
 
-export default App
+export default App;
