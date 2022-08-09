@@ -1,32 +1,33 @@
-import React, { useEffect, useState } from "react";
-import { IFormInputProps } from "../Input.types";
-import { Controller } from "react-hook-form";
-import FormItem from "antd/lib/form/FormItem";
-import { Button, Upload } from "antd";
-import { UploadOutlined } from "@ant-design/icons";
+import React, { useEffect, useState } from 'react'
+import { IFormInputProps } from '../Input.types'
+import { Controller } from 'react-hook-form'
+import FormItem from 'antd/lib/form/FormItem'
+import { Button, Upload } from 'antd'
+import { UploadOutlined } from '@ant-design/icons'
+import { UploadFile, UploadProps } from 'antd/lib/upload'
 
 const InputFileUploud: React.FC<IFormInputProps> = ({
   control,
   name,
-  setValue
+  setValue,
 }) => {
-  const [fileValue, setFileValue] = useState();
+  const [fileValue, setFileValue] = useState<UploadFile>()
 
   useEffect(() => {
-    if (fileValue) setValue(name, fileValue);
-  }, [fileValue]);
+    if (fileValue) setValue(name, fileValue)
+  }, [fileValue])
 
-  const handleChange = (e: any) => {
-    if (e.file.status === "done") {
-      setFileValue(e.file);
+  const handleChange: UploadProps['onChange'] = info => {
+    if (info.file.status === 'done') {
+      setFileValue(info.file)
     }
-  };
+  }
 
   const dummyRequest = ({ onSuccess }: any) => {
     setTimeout(() => {
-      onSuccess("ok");
-    }, 0);
-  };
+      onSuccess('ok')
+    }, 0)
+  }
 
   return (
     <FormItem>
@@ -40,7 +41,7 @@ const InputFileUploud: React.FC<IFormInputProps> = ({
         )}
       />
     </FormItem>
-  );
-};
+  )
+}
 
-export default InputFileUploud;
+export default InputFileUploud
