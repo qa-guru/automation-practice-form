@@ -36,16 +36,17 @@ const FormMain: React.FC<IFormMainProps> = ({ setData }) => {
           yupSync={yupSync}
           setValue={setValue}
           control={control}
+
         />
         <div className={styles.wrapper}>
-          <Button className={styles.wrapper__button} htmlType="submit">
+          <Button className={styles.wrapper__button__confirm} htmlType="submit">
             Submit
           </Button>
-          <Button className={styles.wrapper__button} onClick={() => reset()}>
+          <Button className={styles.wrapper__button__reset} onClick={() => reset()}>
             Reset
           </Button>
           <footer className={styles.footer}>
-            <Text className={styles.text}>© QA GURU</Text>
+            {/* <Text className={styles.text}>© QA GURU</Text> */}
           </footer>
         </div>
       </Form>

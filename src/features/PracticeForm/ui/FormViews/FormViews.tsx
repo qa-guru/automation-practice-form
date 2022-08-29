@@ -86,12 +86,12 @@ const FormViews: React.FC<IFormViewsProps> = ({
         content={Content.StateCityContent.options}
       />
 
-      <div className={styles.contenier}>
+      <div className={styles.container}>
         <Ui.Slider name="slider" control={control} label="Slider" />
       </div>
 
       <Ui.TextArea name="address" control={control} label="Address" />
-      <Ui.FileUploud name="file" control={control} setValue={setValue} />
+      <Ui.FileUpload name="file"  control={control} setValue={setValue} />
     </>
   );
 };

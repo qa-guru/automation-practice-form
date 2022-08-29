@@ -1,6 +1,6 @@
 import { Content } from "antd/lib/layout/layout";
 import { ContainerProps } from "../Container.types";
-import styles from "./ConteinerRight.module.scss";
+import styles from "./ContainerRight.module.scss";
 
 const ContainerRight = ({ children }: ContainerProps) => {
   return (

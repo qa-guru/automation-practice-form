@@ -7,10 +7,10 @@ import Date from "./Date/Date";
 import SelectMultiple from "./SelectMultiple/SelectMultiple";
 import SelectCascader from "./SelectCascader/SelectCascader";
 import Slider from "./Slider/Slider";
-import FileUploud from "./FileUploud/FileUploud";
+import FileUpload from "./FileUpload/FileUpload";
 
 export default {
-  FileUploud,
+  FileUpload,
   Text,
   Radio,
   Checkbox,
