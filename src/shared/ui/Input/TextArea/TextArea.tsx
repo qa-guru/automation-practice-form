@@ -2,7 +2,9 @@ import { Input, Typography } from "antd";
 import FormItem from "antd/lib/form/FormItem";
 import { Controller } from "react-hook-form";
 import { IFormInputProps } from "../Input.types";
+import styles from "./TextArea.module.scss"
 const { TextArea } = Input;
+
 
 const InputTextArea: React.FC<IFormInputProps> = ({
   name,
@@ -18,7 +20,7 @@ const InputTextArea: React.FC<IFormInputProps> = ({
         control={control}
         render={({ field: { onChange, value } }) => (
           <TextArea
-            style={{ minHeight: "100px" }}
+            className={styles.grey}
             placeholder={placeholder}
             value={value}
             onChange={onChange}
