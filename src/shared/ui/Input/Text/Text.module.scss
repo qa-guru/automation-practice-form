@@ -7,4 +7,18 @@
   line-height: 150% !important;
   color: #9CA3AF !important;
   height: 35px;
+  &:hover  {
+    border-color: #31C48D  !important;
+    box-shadow: 0 0 0 1px rgba(140, 247, 218, 0.2);
+    border-width: 1px !important;
+  }
+  &:focus  {
+    border-color: #31C48D  !important;
+    box-shadow: 0 0 0 1px rgba(140, 247, 218, 0.2);
+    border-width: 1px !important;
+  }
+  &:focused  {
+    border-color: #31C48D  !important;
+    border-width: 1px !important;
+  }
 }

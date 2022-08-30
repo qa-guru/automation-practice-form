@@ -17,12 +17,15 @@ const FormViews: React.FC<IFormViewsProps> = ({
           control={control}
           label="First Name"
           yupSync={yupSync}
+          placeholder="John"
         />
         <Ui.Text
           name="lastName"
           control={control}
           label="Last Name"
           yupSync={yupSync}
+          placeholder="Snow"
+
         />
       </div>
 
@@ -39,6 +42,7 @@ const FormViews: React.FC<IFormViewsProps> = ({
           control={control}
           label="Phone"
           yupSync={yupSync}
+          placeholder="+70001110022"
         />
       </div>
 
