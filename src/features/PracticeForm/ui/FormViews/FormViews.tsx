@@ -72,7 +72,7 @@ const FormViews: React.FC<IFormViewsProps> = ({
         />
       </div>
 
-      <div className={styles.contenier}>
+      <div className={styles.contanier}>
         <Ui.SelectMultiple
           name="subjects"
           control={control}

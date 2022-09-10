@@ -2,13 +2,17 @@ $base-border-radius: 8px !important;
 $white-btn-text-color: #fff !important;
 $font-size: 12px !important;
 $font-weight: 600 !important;
-$confirm-btn-color: #31C48D !important;
-$reset-btn-color: #EB5757 !important;
+$confirm-btn-color: rgb(53, 217, 157) !important;
+$confirm-btn-color-hover: rgb(85, 201, 159) !important;
+$reset-btn-color: rgb(235, 87, 87) !important;
+$reset-btn-color-hover: rgb(235, 107, 107) !important;
 $btn-max-width: 100%;
 $btn-width: 130px;
 $btn-height: 35px !important;
+$btn-border-color: #fff !important;
 
 .wrapper {
+
   margin-top: 20px;
   margin-bottom: 20px;
   display: flex;
@@ -23,6 +27,10 @@ $btn-height: 35px !important;
     color: $white-btn-text-color;
     font-size: $font-size;
     font-weight: $font-weight;
+    border-color: $btn-border-color;
+    &:hover  {
+      background: $confirm-btn-color-hover;
+    }
   }
   &__button__reset {
     width: $btn-width;
@@ -33,6 +41,10 @@ $btn-height: 35px !important;
     color: $white-btn-text-color;
     font-size: $font-size;
     font-weight: $font-weight;
+    border-color: $btn-border-color;
+    &:hover  {
+      background: $reset-btn-color-hover;
+    }
   }
 
 }
@@ -41,7 +53,12 @@ $btn-height: 35px !important;
   width: 508px;
 }
 
-
+.ant-typography {
+  color: #1F2937;
+  overflow-wrap: break-word;
+  font-weight: 600;
+  line-height: 150%;
+}
 
 .footer {
   background-color: var(--gx-color-practice-form-footer);

@@ -8637,6 +8637,11 @@ react-scripts@5.0.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
+react-select-datepicker@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-select-datepicker/-/react-select-datepicker-2.1.1.tgz#2bac0a758ecb5549044b9f648b9bef6ec707fdbe"
+  integrity sha512-Zoe4F927KuDGJbHyPj1o4e0mtXig680AYJSo4T75pdO5ar/aQB8eX6igrLpho//9Cf+cchQVIzmOdOgoWaNhvQ==
+
 react-transition-group@^4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.2.tgz#8b59a56f09ced7b55cbd53c36768b922890d5470"

@@ -6,11 +6,14 @@
 }
 
 .keys {
-	border: 1px solid var(--gx-color-text-black);
+	border: 1px solid #4C5156;
+
+  background:  var(--gx-color-content-right-label);
 	padding: 5px;
 	padding-top: 8px;
 	min-height: 5vh;
-	color: var(--gx-color-text-white);
+	color: var(--gx-color-text-yellow);
+  border-radius: 8px;
 }
 
 .title {
