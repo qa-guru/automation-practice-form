@@ -53,7 +53,7 @@ const FormViews: React.FC<IFormViewsProps> = ({
           control={control}
           content={Content.LanguageContent.options}
         />
-        <Ui.Date name="birthDate" control={control} label="Birthdate" />
+        <Ui.DDD name="birthDate" control={control} label="Birthdate" />
       </div>
 
       <div className={styles.wrapp}>

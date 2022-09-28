@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { ISelectDatepicker } from  'react-select-datepicker';
 export interface IFormPracticeInput {
   firstName: string;
   lastName: string;
