@@ -15,6 +15,16 @@ body {
 	width: 0;
 }
 
+.ant-form-item-label > label {
+  color: #6B7280;
+  font-weight: 600;
+}
+
+.ant-checkbox-group {
+  padding: 5px 0 1px;
+}
+
+
 .ant-checkbox-checked .ant-checkbox-inner {
   background-color: #0E9F6E;
   border-color: #0E9F6E;
@@ -95,6 +105,17 @@ body {
 .ant-cascader-menu-item-active:not(.ant-cascader-menu-item-disabled), .ant-cascader-menu-item-active:not(.ant-cascader-menu-item-disabled):hover {
 
   background-color: #e6ffeb;
+}
+.ant-typography {
+  color: #6B7280;
+  font-weight: 600;
+}
+
+h1.ant-typography {
+ color: #374151;
+}
+.ant-checkbox + span, span.ant-radio + * {
+  color: #6B7280;
 }
 
 :root {
