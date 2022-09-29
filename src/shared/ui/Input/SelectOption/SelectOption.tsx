@@ -31,7 +31,7 @@ const InputSelectOption: React.FC<IFormInputProps> = ({
         name={name}
         render={({ field: { onChange, value } }) => (
           <select className={styles.select} onChange={onChange} value={value}>
-            <option className={styles.option} value="" disabled />
+            <option className={styles.grey} value="" disabled />
             {generateSingleOptions()}
           </select>
         )}
