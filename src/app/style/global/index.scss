@@ -1,6 +1,11 @@
 @import './normalize.scss';
 @import '~antd/dist/antd.css';
 
+html {
+  --antd-wave-shadow-color: #0E9F6E !important;
+  --scroll-bar: 0;
+}
+
 body {
 	font-family: 'Inter', sans-serif;
 	font-weight: normal;
@@ -9,6 +14,82 @@ body {
 ::-webkit-scrollbar {
 	width: 0;
 }
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #0E9F6E;
+  border-color: #0E9F6E;
+}
+.ant-checkbox-checked::after .ant-checkbox-inner::after  {
+  border: 1px solid #0E9F6E;
+}
+
+.ant-radio-checked .ant-radio-inner {
+  background-color: #fff;
+  border-color: #0E9F6E;
+}
+.ant-radio-checked::after  {
+  border: 1px solid #0E9F6E;
+}
+
+.ant-radio-inner::after {
+  background-color: #0E9F6E;
+}
+
+.ant-btn, .ant-btn:hover, .ant-btn:focus {
+  border-color: #fff;
+}
+.ant-input:hover, .ant-input:focus {
+  border-color: #0E9F6E !important;
+  border-right-width: 1px;
+}
+
+.ant-select-selector {
+  height: 35px;
+  background: #F9FAFB !important;
+  border: 1px solid #E5E7EB !important;
+  border-radius: 8px !important;
+  font-weight: 400 !important;
+  font-size: 12px !important;
+
+}
+
+.ant-slider-handle {
+  border: solid 2px #0E9F6E;
+}
+.ant-slider-handle.ant-tooltip-open {
+  border-color: #31C48D;
+}
+
+.ant-slider-track {
+  position: absolute;
+  height: 4px;
+  background-color: #31C48D;
+  border-radius: 2px;
+  transition: background-color 0.3s;
+}
+
+.ant-slider-handle:focus {
+  border-color: #31C48D;
+  outline: none;
+  box-shadow: 0 0 0 5px rgb(24 255 179 / 12%);
+}
+
+.ant-slider:hover .ant-slider-track {
+  background-color: #31C48D;
+}
+
+.ant-slider:hover .ant-slider-handle:not(.ant-tooltip-open) {
+  border-color: #31C48D;
+}
+
+.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  box-shadow: none;
+}
+
+.ant-input:focus, .ant-input-focused {
+  box-shadow: none;
+}
+
 
 :root {
 	--gx-color-header: #f9f9f9;
