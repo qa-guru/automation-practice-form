@@ -4,12 +4,14 @@
 	grid-gap: 25px;
 	margin-top: 20px;
   &__keys {
+    font-size: 18px;
     padding: 5px;
     padding-top: 8px;
     min-height: 5vh;
     color: var(--gx-color-text-yellow);
   }
   &__values {
+    font-size: 18px;
     padding: 5px;
     padding-top: 8px;
     min-height: 5vh;

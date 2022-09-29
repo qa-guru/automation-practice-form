@@ -89,7 +89,13 @@ body {
 .ant-input:focus, .ant-input-focused {
   box-shadow: none;
 }
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background-color: #e6ffeb;
+}
+.ant-cascader-menu-item-active:not(.ant-cascader-menu-item-disabled), .ant-cascader-menu-item-active:not(.ant-cascader-menu-item-disabled):hover {
 
+  background-color: #e6ffeb;
+}
 
 :root {
 	--gx-color-header: #f9f9f9;
