@@ -3,24 +3,27 @@
 	grid-template-columns: 135px 1fr;
 	grid-gap: 25px;
 	margin-top: 20px;
-}
-
-.keys {
-	border: 1px solid #4C5156;
-
-  background:  var(--gx-color-content-right-label);
-	padding: 5px;
-	padding-top: 8px;
-	min-height: 5vh;
-	color: var(--gx-color-text-yellow);
-  border-radius: 8px;
+  &__keys {
+    padding: 5px;
+    padding-top: 8px;
+    min-height: 5vh;
+    color: var(--gx-color-text-yellow);
+  }
+  &__values {
+    padding: 5px;
+    padding-top: 8px;
+    min-height: 5vh;
+    color: var(--gx-color-text-white)
+  }
 }
 
 .title {
-	color: var(--gx-color-text-white);
 	font-size: 20px;
+  color: #FF3F6D !important;
 }
 
 .wrapper {
 	padding: 20px;
+  font-family: monospace !important;
+
 }
