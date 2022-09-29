@@ -5,6 +5,7 @@ import FormItem from 'antd/lib/form/FormItem'
 import { Button, Upload } from 'antd'
 import { UploadOutlined } from '@ant-design/icons'
 import { UploadFile, UploadProps } from 'antd/lib/upload'
+import styles from './FileUpload.module.scss';
 
 const InputFileUploud: React.FC<IFormInputProps> = ({
   control,
@@ -36,7 +37,7 @@ const InputFileUploud: React.FC<IFormInputProps> = ({
         name={name}
         render={() => (
           <Upload onChange={handleChange} customRequest={dummyRequest}>
-            <Button icon={<UploadOutlined />}>Click to Upload</Button>
+            <Button className={styles.upload} icon={<UploadOutlined />}>Click to Upload</Button>
           </Upload>
         )}
       />

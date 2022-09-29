@@ -1,6 +1,7 @@
 import { Controller } from "react-hook-form";
 import { Form, Input, Typography } from "antd";
 import { IFormInputProps } from "../Input.types";
+import styles from "./Text.module.scss"
 
 const InputText: React.FC<IFormInputProps> = ({
   control,
@@ -18,6 +19,7 @@ const InputText: React.FC<IFormInputProps> = ({
         render={({ field: { onChange, value } }) => (
           <Form.Item name={name} rules={[yupSync]}>
             <Input
+              className={styles.grey}
               value={value}
               onChange={onChange}
               placeholder={placeholder}

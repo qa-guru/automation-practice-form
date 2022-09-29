@@ -2,10 +2,13 @@ import { Cascader, Typography } from "antd";
 import React, { useEffect, useState } from "react";
 import { Controller } from "react-hook-form";
 import { IFormInputProps } from "../Input.types";
+import styles from "./SelectCascader.module.scss"
+
 interface Option {
   value: string;
   label: string;
   children?: Option[];
+
 }
 
 const InputSelectCascader: React.FC<IFormInputProps> = ({
@@ -24,6 +27,7 @@ const InputSelectCascader: React.FC<IFormInputProps> = ({
       return {
         value: option.state.toLowerCase(),
         label: option.state,
+
         children: option.cities.map(city => {
           return {
             value: city.toLowerCase(),
@@ -50,6 +54,7 @@ const InputSelectCascader: React.FC<IFormInputProps> = ({
         name={name}
         render={() => (
           <Cascader
+            className={styles.select}
             options={convertLocationSchema(content)}
             onChange={handleChange}
           />

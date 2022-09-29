@@ -2,7 +2,7 @@ import { useState } from "react";
 import FormMain from "../features/PracticeForm/model/FormMain/FormMain";
 import FormResult from "../features/PracticeForm/ui/FormResult/FormResult";
 import ContainerLeft from "../shared/ui/Containers/ContainerLeft/ContainerLeft";
-import ContainerRight from "../shared/ui/Containers/ContainerRight/ConteinerRight";
+import ContainerRight from "../shared/ui/Containers/ContainerRight/ContainerRight";
 
 const PracticeForm: React.FC = () => {
   const [data, setData] = useState();

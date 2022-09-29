@@ -17,12 +17,15 @@ const FormViews: React.FC<IFormViewsProps> = ({
           control={control}
           label="First Name"
           yupSync={yupSync}
+          placeholder="John"
         />
         <Ui.Text
           name="lastName"
           control={control}
           label="Last Name"
           yupSync={yupSync}
+          placeholder="Snow"
+
         />
       </div>
 
@@ -39,6 +42,7 @@ const FormViews: React.FC<IFormViewsProps> = ({
           control={control}
           label="Phone"
           yupSync={yupSync}
+          placeholder="+70001110022"
         />
       </div>
 
@@ -49,7 +53,7 @@ const FormViews: React.FC<IFormViewsProps> = ({
           control={control}
           content={Content.LanguageContent.options}
         />
-        <Ui.Date name="birthDate" control={control} label="Birthdate" />
+        <Ui.DDD name="birthDate" control={control} label="Birthdate" />
       </div>
 
       <div className={styles.wrapp}>
@@ -68,7 +72,7 @@ const FormViews: React.FC<IFormViewsProps> = ({
         />
       </div>
 
-      <div className={styles.contenier}>
+      <div className={styles.contanier}>
         <Ui.SelectMultiple
           name="subjects"
           control={control}
@@ -86,12 +90,12 @@ const FormViews: React.FC<IFormViewsProps> = ({
         content={Content.StateCityContent.options}
       />
 
-      <div className={styles.contenier}>
+      <div className={styles.container}>
         <Ui.Slider name="slider" control={control} label="Slider" />
       </div>
 
       <Ui.TextArea name="address" control={control} label="Address" />
-      <Ui.FileUploud name="file" control={control} setValue={setValue} />
+      <Ui.FileUpload name="file"  control={control} setValue={setValue} />
     </>
   );
 };
