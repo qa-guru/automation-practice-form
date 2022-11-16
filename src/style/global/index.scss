@@ -1,5 +1,5 @@
-@import './normalize.scss';
-@import '~antd/dist/antd.css';
+@import 'normalize';
+@import 'antd/dist/antd.css';
 
 html {
   --antd-wave-shadow-color: #0E9F6E !important;
@@ -195,34 +195,4 @@ h1.ant-typography {
 //code-editor
 .cm-scroller {
 	background-color: #393939;
-}
-
-//kanban-board
-.react-kanban-column {
-	background: #555555;
-	&:nth-child(1) {
-		background: #888888;
-	}
-	&:nth-child(2) {
-		background: #2a8574;
-	}
-	&:nth-child(3) {
-		background: #296181;
-	}
-	&:nth-child(4) {
-		background: #a98320;
-	}
-}
-.react-kanban-card {
-	background: #6a6a6a;
-}
-.react-kanban-card__description {
-	color: #e6daca;
-}
-.react-kanban-card__title {
-	color: #e6daca;
-	border-bottom: 1px solid black;
-}
-.react-kanban-column-header {
-	color: #e6daca;
 }
