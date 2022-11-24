@@ -29,7 +29,7 @@ const InputSelectMultiple: React.FC<IFormInputProps> = ({
           <Select
             mode="tags"
             value={value}
-            style={{ width: "100%" }}
+            style={{ width: "100%", height: "100%" }}
             onChange={onChange}
           >
             {generateSingleSubjects()}

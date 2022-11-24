@@ -5,7 +5,7 @@ import { IFormInputProps } from "../Input.types";
 import FormItem from "antd/lib/form/FormItem";
 import { Typography } from "antd";
 import { SelectDatepicker as SelectDatePicker } from "react-select-datepicker";
-import  "./Date.css"
+import  "./Date.scss"
 
 const { Text } = Typography;
 

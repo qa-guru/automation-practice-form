@@ -46,14 +46,14 @@ const FormViews: React.FC<IFormViewsProps> = ({
         />
       </div>
 
-      <div className={styles.wrapper}>
+      <div>
         <Ui.SelectOption
           label="Select Language"
           name="language"
           control={control}
           content={Content.LanguageContent.options}
         />
-        <Ui.DDD name="birthDate" control={control} label="Birthdate" />
+        <Ui.DDD label="Birthdate" name="birthDate" control={control} />
       </div>
 
       <div className={styles.wrapp}>
@@ -65,14 +65,14 @@ const FormViews: React.FC<IFormViewsProps> = ({
           yupSync={yupSync}
         />
         <Ui.Checkbox
-          control={control}
           name="hobbies"
+          control={control}
           label="Hobbies:"
           content={Content.HobbiesContent.options}
         />
       </div>
 
-      <div className={styles.contanier}>
+      <div className={styles.container}>
         <Ui.SelectMultiple
           name="subjects"
           control={control}
@@ -81,14 +81,16 @@ const FormViews: React.FC<IFormViewsProps> = ({
         />
       </div>
 
-      <Ui.SelectCascader
-        name="stateCity"
-        control={control}
-        placeholder="Select"
-        label="Select State and City:"
-        setValue={setValue}
-        content={Content.StateCityContent.options}
-      />
+      <div>
+        <Ui.SelectCascader
+          name="stateCity"
+          control={control}
+          placeholder="Select"
+          label="Select State and City:"
+          setValue={setValue}
+          content={Content.StateCityContent.options}
+        />
+      </div>
 
       <div className={styles.container}>
         <Ui.Slider name="slider" control={control} label="Slider" />

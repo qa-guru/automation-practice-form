@@ -1,11 +1,4 @@
-$base-border-radius: 8px !important;
-$white-btn-text-color: #1F2937 !important;
-$font-size: 12px !important;
-$font-weight: 600 !important;
-$upload-btn-color: #F2C94C !important;
-$btn-max-width: 100%;
-$btn-width: 130px;
-$btn-height: 35px !important;
+@import "src/style/variables/variables.scss";
 
 .upload {
   background: $upload-btn-color;

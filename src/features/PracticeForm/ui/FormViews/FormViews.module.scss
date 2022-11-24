@@ -1,25 +1,22 @@
+@import "src/style/variables/breakpoints";
+
 .wrapper {
   font-weight: 600 !important;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-gap: 50px;
 	margin-top: 12px;
-	@media (max-width: 1200px) {
-		grid-gap: 20px;
-	}
 }
 
 .wrapp {
   font-weight: 400 !important;
 	display: grid;
-	grid-gap: 50px;
+	grid-gap: 20px;	
 	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-	@media (max-width: 1200px) {
-		grid-gap: 20px;
-	}
+	row-gap: 0;
 }
 
 .container {
-	margin-top: 25px;
   font-weight: 600 !important;
+  margin-top: 20px;
 }

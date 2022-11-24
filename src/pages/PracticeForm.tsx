@@ -3,18 +3,21 @@ import FormMain from "../features/PracticeForm/model/FormMain/FormMain";
 import FormResult from "../features/PracticeForm/ui/FormResult/FormResult";
 import ContainerLeft from "../shared/ui/Containers/ContainerLeft/ContainerLeft";
 import ContainerRight from "../shared/ui/Containers/ContainerRight/ContainerRight";
+import "./PracticeForm.scss"
 
-const PracticeForm: React.FC = () => {
+const PracticeForm: React.FC = (props) => {
   const [data, setData] = useState();
 
   return (
     <>
-      <ContainerLeft>
-        <FormMain setData={setData} />
-      </ContainerLeft>
-      <ContainerRight>
-        <div>{data && <FormResult data={data} />}</div>
-      </ContainerRight>
+      <div className="page">
+        <ContainerLeft>
+          <FormMain setData={setData} />
+        </ContainerLeft>
+        <ContainerRight>
+          <div>{data && <FormResult data={data} />}</div>
+        </ContainerRight>
+      </div>
     </>
   );
 };

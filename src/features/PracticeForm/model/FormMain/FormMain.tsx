@@ -1,5 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import React from "react";
+import React, { useRef } from "react";
 import { defaultValues } from "../../config/defaultValues";
 import PracticeFormViews from "../../ui/FormViews/FormViews";
 import { Button, Form, Typography } from "antd";
@@ -20,6 +20,12 @@ const FormMain: React.FC<IFormMainProps> = ({ setData }) => {
 
   const onSubmit: SubmitHandler<IFormPracticeInput> = data => {
     setData(data);
+    setTimeout(() => {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: "smooth",
+      });
+    }, 200);
   };
 
   const yupSync = {
@@ -36,7 +42,6 @@ const FormMain: React.FC<IFormMainProps> = ({ setData }) => {
           yupSync={yupSync}
           setValue={setValue}
           control={control}
-
         />
         <div className={styles.wrapper}>
           <Button className={styles.wrapper__button__confirm} htmlType="submit">
