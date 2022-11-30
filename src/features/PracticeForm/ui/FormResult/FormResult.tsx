@@ -17,15 +17,15 @@ const AutoTestsResult: React.FC<IFormResult> = ({ data }) => {
   }, [linesShown])
 
   const generateSingleKeys = () => {
-    return arrayData.map((key, index) =>
-      index <= linesShown ? (
+    return arrayData.map((key) =>
+    key[1] != "" && key[1] != [] && key[1] != null ? ( 
         <p className={styles.keys} key={key}>
           {key[0]}
         </p>
       ) : null
-    )
+    ) 
   }
-
+  
   const generateSingleValues = () => {
     return arrayData.map((value, index) =>
       index <= linesShown ? (
@@ -33,7 +33,7 @@ const AutoTestsResult: React.FC<IFormResult> = ({ data }) => {
           {Array.isArray(value[1])
             ? value[1].join(', ')
             : value[0] === 'birthDate'
-            ? value[1].toLocaleString()
+            ? value[1]?.toLocaleString()
             : value[0] === 'file'
             ? JSON.stringify(value[1].name)
             : value[1]}

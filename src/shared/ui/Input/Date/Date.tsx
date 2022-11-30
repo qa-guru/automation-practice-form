@@ -16,13 +16,10 @@ const InputDate: React.FC<IFormInputProps> = ({ control, label, name }) => {
 
       <Text>{label}</Text>
       <Controller
-        defaultValue=""
-
         name={name}
         control={control}
         render={ ({ field  }) => (
           <SelectDatePicker
-
           hideLabels
           order="day/month/year"
           onDateChange={(e) => field.onChange(e)}

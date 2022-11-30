@@ -10,11 +10,10 @@ export interface IFormPracticeInput {
   subjects: string[];
   hobbies: string[];
   stateCity: string[];
-  slider: number;
+  slider: string;
   address: string;
   language: string;
   file: any;
-
 }
 
 export interface IFormMainProps {

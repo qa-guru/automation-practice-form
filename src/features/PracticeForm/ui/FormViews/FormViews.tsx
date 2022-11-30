@@ -7,7 +7,7 @@ import { IFormViewsProps } from "./FormViews.types";
 const FormViews: React.FC<IFormViewsProps> = ({
   control,
   setValue,
-  yupSync
+  yupSync,
 }) => {
   return (
     <>
@@ -25,7 +25,6 @@ const FormViews: React.FC<IFormViewsProps> = ({
           label="Last Name"
           yupSync={yupSync}
           placeholder="Snow"
-
         />
       </div>
 
@@ -37,13 +36,13 @@ const FormViews: React.FC<IFormViewsProps> = ({
           placeholder="name@example.com"
           yupSync={yupSync}
         />
-        <Ui.Text
-          name="phone"
-          control={control}
-          label="Phone"
-          yupSync={yupSync}
-          placeholder="+70001110022"
-        />
+          <Ui.Phone 
+            name="phone"
+            control={control}
+            label="Phone"
+            yupSync={yupSync}
+            placeholder="+1 (999) 999 99 99"
+          />
       </div>
 
       <div>
