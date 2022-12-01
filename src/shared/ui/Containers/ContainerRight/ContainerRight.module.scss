@@ -1,4 +1,11 @@
+@import "src/style/variables/breakpoints";
+
 .content__right {
-	width: 50%;
 	background-color: var(--gx-color-content-right);
+	@include media(tablet, desktop) {
+        width: 50%;
+    }
+    @include media(mobile) {
+        width: 100%;
+    }
 }

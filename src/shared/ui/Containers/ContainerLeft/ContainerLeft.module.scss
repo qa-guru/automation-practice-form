@@ -1,6 +1,18 @@
+@import "src/style/variables/breakpoints";
+
 .content__left {
 	background-color: var(--gx-color-content-left);
-	width: 50%;
+	@include media(tablet, desktop) {
+        width: 50%;
+    }
+    @include media(mobile) {
+        width: 100%;
+		&_container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+    }
 	&_container {
 		padding: 0 50px;
 	}
