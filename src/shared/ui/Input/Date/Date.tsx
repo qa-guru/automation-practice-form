@@ -13,7 +13,6 @@ const { Text } = Typography;
 const InputDate: React.FC<IFormInputProps> = ({ control, label, name }) => {
   return (
     <FormItem>
-
       <Text>{label}</Text>
       <Controller
         name={name}
@@ -24,7 +23,6 @@ const InputDate: React.FC<IFormInputProps> = ({ control, label, name }) => {
           order="day/month/year"
           onDateChange={(e) => field.onChange(e)}
           />
-
         )}
       />
     </FormItem>

@@ -20,7 +20,7 @@ const InputPhone: React.FC<IFormInputProps> = ({
         render={({ field: { onChange, value } }) => (
           <Form.Item name={name} rules={[yupSync]}>
             <InputMask
-              mask={"+1 (999) 999 - 99 - 99"}
+              mask={"+1 (999) 999 - 9999"}
               className={styles.grey}
               alwaysShowMask={true}
               value={value}

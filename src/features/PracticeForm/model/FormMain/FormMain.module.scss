@@ -1,5 +1,3 @@
-@import "src/style/variables/variables.scss";
-
 .wrapper {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -7,31 +5,31 @@
   justify-content: center;
   grid-gap: 20px;
   &__button__confirm {
-    width: $btn-width;
-    height: $btn-height;
-    max-width: $btn-max-width;
-    background: $confirm-btn-color;
-    border-radius: $base-border-radius;
-    color: $white-btn-text-color;
-    font-size: $font-size;
-    font-weight: $font-weight;
-    border-color: $btn-border-color;
+    width: var(--gx-btn-width) !important;
+    height: var(--gx-btn-height) !important;
+    max-width: var(--gx-btn-max-width) !important;
+    background: var(--gx-confirm-btn-color) !important;
+    border-radius: var(--gx-base-border-radius) !important;
+    color: var(--gx-white-btn-text-color) !important;
+    font-size: var(--gx-font-size) !important;
+    font-weight: var(--gx-font-weight) !important;
+    border-color: var(--gx-btn-border-color) !important;
     &:hover  {
-      background: $confirm-btn-color-hover;
+      background: var(--gx-confirm-btn-color-hover) !important;
     }
   }
   &__button__reset {
-    width: $btn-width;
-    height: $btn-height;
-    max-width: $btn-max-width;
-    background: $reset-btn-color;
-    border-radius: $base-border-radius;
-    color: $white-btn-text-color;
-    font-size: $font-size;
-    font-weight: $font-weight;
-    border-color: $btn-border-color;
+    width: var(--gx-btn-width) !important;
+    height: var(--gx-btn-height) !important;
+    max-width: var(--gx-btn-max-width) !important;
+    background: var(--gx-reset-btn-color) !important;
+    border-radius: var(--gx-base-border-radius) !important;
+    color: var(--gx-white-btn-text-color) !important;
+    font-size: var(--gx-font-size) !important;
+    font-weight: var(--gx-font-weight) !important;
+    border-color: var(--gx-btn-border-color) !important;
     &:hover  {
-      background: $reset-btn-color-hover;
+      background: var(--gx-reset-btn-color-hover) !important;
     }
   }
 
@@ -54,5 +52,4 @@
   bottom: 0;
   width: 50%;
   text-align: center;
-  // font-size: 20px;
 }

@@ -1,4 +1,4 @@
-@import "src/style/variables/breakpoints";
+@import "../style/global/breakpoints.scss";
 
 .page {
     @include media(tablet, desktop) {

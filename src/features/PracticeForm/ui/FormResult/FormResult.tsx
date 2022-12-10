@@ -18,7 +18,7 @@ const AutoTestsResult: React.FC<IFormResult> = ({ data }) => {
 
   const generateSingleKeys = () => {
     return arrayData.map((key) =>
-    key[1] != "" && key[1] != [] && key[1] != null ? ( 
+    key[1] != "" && key[1] != Array(0) && key[1] != null ? ( 
         <p className={styles.keys} key={key}>
           {key[0]}
         </p>

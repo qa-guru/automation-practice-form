@@ -1,10 +1,8 @@
-@import "src/style/variables/variables.scss";
-
 .upload {
-  background: $upload-btn-color;
-  border-radius: $base-border-radius;
-  color: $white-btn-text-color;
-  height: $btn-height;
-  font-size: $font-size;
-  font-weight: $font-weight;
+  background: var(--gx-upload-btn-color) !important;
+  border-radius: var(--gx-base-border-radius) !important;
+  color: var(--gx-white-btn-text-color) !important;
+  height: var(--gx-btn-height) !important;
+  font-size: var(--gx-font-size) !important;
+  font-weight: var(--gx-font-weight) !important;
 }

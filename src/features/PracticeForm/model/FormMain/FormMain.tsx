@@ -46,7 +46,7 @@ const FormMain: React.FC<IFormMainProps> = ({ setData }) => {
           <Button className={styles.wrapper__button__confirm} htmlType="submit">
             Submit
           </Button>
-          <Button className={styles.wrapper__button__reset} onClick={() => reset()}>
+          <Button className={styles.wrapper__button__reset} htmlType="reset" onClick={() => reset()}>
             Reset
           </Button>
           <footer className={styles.footer}>

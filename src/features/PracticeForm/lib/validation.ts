@@ -20,6 +20,7 @@ export const validationSchema = yup.object({
     .email("Email is invalid"),
   phone: yup
     .string()
+    .phone("Phone is invalid")
     .required("Phone is required"),
   gender: yup
     .string()
