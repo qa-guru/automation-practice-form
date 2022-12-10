@@ -7,7 +7,6 @@
 - [React](https://reactjs.org/)
 - [React Hook Form](https://react-hook-form.com/)
 - [Yup](https://yup.com/)
-- [Web Vitals](https://web.dev/vitals/)
 - [Sass](https://sass-lang.com/)
 - [Ant Design](https://ant.design/)
 
