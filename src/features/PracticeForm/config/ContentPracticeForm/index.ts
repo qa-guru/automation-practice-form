@@ -9,5 +9,5 @@ export default {
   HobbiesContent,
   LanguageContent,
   SubjectsContent,
-  StateCityContent
+  StateCityContent,
 };
