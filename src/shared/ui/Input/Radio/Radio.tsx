@@ -1,41 +1,45 @@
 import React from "react";
 import { Controller } from "react-hook-form";
+import { FormLabel, FormControl, RadioGroup, FormControlLabel, Radio } from "@mui/material";
 import { IFormInputProps } from "../Input.types";
-import { Form, Radio, Space, Typography } from "antd";
 
 const InputRadio: React.FC<IFormInputProps> = ({
   control,
   label,
   name,
   content,
-  direction,
-  yupSync
 }) => {
-  const generateRadioOptions = (content: any[]) => {
-    return content.map(singleOptionValue => (
-      <Radio key={singleOptionValue.id} value={singleOptionValue.value}>
-        {singleOptionValue.label}
-      </Radio>
-    ));
+  const generateRadioOptions = () => {
+    return content?.map((value, index) => {
+      if (typeof value === "string")
+        return (
+          <FormControlLabel
+            key={index}
+            value={value}
+            control={<Radio />}
+            label={value} />
+        );
+    });
   };
 
   return (
-    <div>
-      <Typography>{label}</Typography>
+    <FormControl fullWidth>
+      <FormLabel>{label}</FormLabel>
       <Controller
         name={name}
         control={control}
         render={({ field: { onChange, value } }) => (
-          <Form.Item name={name} rules={[yupSync]}>
-            <Radio.Group value={value} onChange={onChange}>
-              <Space direction={direction}>
-                {generateRadioOptions(content)}
-              </Space>
-            </Radio.Group>
-          </Form.Item>
+          <RadioGroup
+            name={name}
+            value={value}
+            onChange={onChange}
+            row
+          >
+            {generateRadioOptions()}
+          </RadioGroup>
         )}
       />
-    </div>
+    </FormControl>
   );
 };
 

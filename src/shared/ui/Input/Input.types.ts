@@ -1,18 +1,24 @@
-import { UseFormSetValue } from "react-hook-form";
+import { Control, FieldValues, UseFormSetValue } from "react-hook-form";
+import { InputBaseComponentProps } from "@mui/material";
 import { IFormPracticeInput } from "../../../features/PracticeForm/model/FormMain/FormMain.types";
 
 type IFormInput = IFormPracticeInput;
 
-export interface IFormInputProps {
-  control: any;
-  name: string | any;
+export interface TypeOptions {
+  state: string;
+  cities: string[];
+}
+export interface IFormInputProps<T extends FieldValues = IFormInput> {
+  control: Control<T>;
+  name: keyof T;
   label?: string;
   placeholder?: string;
-  setValue?: UseFormSetValue<IFormInput> | any;
-  content?: any;
-  direction?: "horizontal" | "vertical";
+  setValue?: UseFormSetValue<T>;
+  content?: string[] | TypeOptions[];
   min?: number;
   max?: number;
-  yupSync?: any;
+  title?: string;
   mask?: string;
+  reason?: string;
+  inputProps?: InputBaseComponentProps;
 }

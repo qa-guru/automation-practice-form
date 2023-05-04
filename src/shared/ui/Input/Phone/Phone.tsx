@@ -1,37 +1,39 @@
+import React from "react";
 import { Controller } from "react-hook-form";
-import { Form, Typography } from "antd";
+import { FormControl } from "@mui/material";
+import { MuiTelInput } from "mui-tel-input";
 import { IFormInputProps } from "../Input.types";
-import InputMask from "react-input-mask"
-import styles from "./Phone.module.scss"
 
 const InputPhone: React.FC<IFormInputProps> = ({
   control,
   name,
   placeholder,
   label,
-  yupSync
+  inputProps
 }) => {
   return (
-    <div>
-      <Typography>{label}</Typography>
+    <FormControl fullWidth>
       <Controller
         name={name}
         control={control}
         render={({ field: { onChange, value } }) => (
-          <Form.Item name={name} rules={[yupSync]}>
-            <InputMask
-              mask={"+1 (999) 999 - 99 - 99"}
-              className={styles.grey}
-              alwaysShowMask={true}
-              value={value}
+          <FormControl>
+            <MuiTelInput
+              size={"medium"}
+              name={name}
+              label={label}
+              onlyCountries={["US"]}
+              defaultCountry={"US"}
+              value={Array.isArray(value) ? value.join(", ") : value}
               onChange={onChange}
               placeholder={placeholder}
+              inputProps={inputProps}
             />
-          </Form.Item>
+          </FormControl>
         )}
       />
-    </div>
+    </FormControl>
   );
 };
 
-export default InputPhone
+export default InputPhone;

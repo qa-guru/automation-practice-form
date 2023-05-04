@@ -5,7 +5,7 @@ import TextArea from "./TextArea/TextArea";
 import SelectOption from "./SelectOption/SelectOption";
 import DDD from "./Date/Date";
 import SelectMultiple from "./SelectMultiple/SelectMultiple";
-import SelectCascader from "./SelectCascader/SelectCascader";
+import SelectConnected from "./SelectConnected/SelectConnected";
 import Slider from "./Slider/Slider";
 import FileUpload from "./FileUpload/FileUpload";
 import Phone from "./Phone/Phone";
@@ -20,6 +20,6 @@ export default {
   SelectOption,
   DDD,
   SelectMultiple,
-  SelectCascader,
-  Slider
+  SelectConnected,
+  Slider,
 };

@@ -1,12 +1,7 @@
-import { Typography } from "antd";
-import FormItem from "antd/lib/form/FormItem";
 import React from "react";
 import { Controller } from "react-hook-form";
+import { FormControl, InputLabel, MenuItem, Select, Box } from "@mui/material";
 import { IFormInputProps } from "../Input.types";
-
-import styles from "./SelectOption.module.scss";
-
-const { Text } = Typography;
 
 const InputSelectOption: React.FC<IFormInputProps> = ({
   name,
@@ -15,28 +10,32 @@ const InputSelectOption: React.FC<IFormInputProps> = ({
   content
 }) => {
   const generateSingleOptions = () => {
-    return content.map((option: any) => {
-      return (
-        <option key={option.id} value={option.value}>
-          {option.label}
-        </option>
-      );
+    return content?.map((value, index) => {
+      if (typeof value === "string")
+        return (
+          <MenuItem key={index} value={value}>
+            {value}
+          </MenuItem>
+        );
     });
   };
+
   return (
-    <FormItem>
-      <Text>{label}</Text>
+    <FormControl fullWidth>
+      <InputLabel>
+        {label}
+      </InputLabel>
       <Controller
         control={control}
         name={name}
         render={({ field: { onChange, value } }) => (
-          <select className={styles.select} onChange={onChange} value={value}>
-            <option className={styles.grey} value="" disabled />
+          <Select onChange={onChange} value={value}>
+            <MenuItem value="" disabled />
             {generateSingleOptions()}
-          </select>
+          </Select>
         )}
       />
-    </FormItem>
+    </FormControl>
   );
 };
 
