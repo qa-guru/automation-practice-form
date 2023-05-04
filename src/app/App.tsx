@@ -1,12 +1,17 @@
 import React from "react";
 import PracticeForm from "../pages/PracticeForm";
-import Layout from "../shared/ui/Layout/Layout";
+import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
+import { CssBaseline } from "@mui/material";
+import { theme } from "../theme";
 
 const App: React.FC = () => {
   return (
-    <Layout>
-      <PracticeForm />
-    </Layout>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <PracticeForm />
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 };
 
