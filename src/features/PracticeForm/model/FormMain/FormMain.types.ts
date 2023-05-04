@@ -1,21 +1,22 @@
+import { Dispatch, SetStateAction } from "react";
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ISelectDatepicker } from  'react-select-datepicker';
 export interface IFormPracticeInput {
   firstName: string;
   lastName: string;
   email: string;
   gender: string;
   phone: string;
-  birthDate: string;
+  dateOfBirth: string;
   subjects: string[];
   hobbies: string[];
   stateCity: string[];
   slider: string;
   address: string;
   language: string;
-  file: any;
+  file: string;
 }
 
 export interface IFormMainProps {
-  setData: any;
+  setData: Dispatch<SetStateAction<IFormPracticeInput | any>>;
 }
