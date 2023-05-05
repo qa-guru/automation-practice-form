@@ -1,14 +1,13 @@
 # Automation practice form
 
-![Alt text](https://i.postimg.cc/NMHstFNS/Screenshot-2022-11-24-at-15-35-44.png)
+![Alt text](https://i.postimg.cc/15Z8SHGS/Screenshot-2023-05-05-at-10-59-53.png)
 
 ## Technologies
 
 - [React](https://reactjs.org/)
 - [React Hook Form](https://react-hook-form.com/)
 - [Yup](https://yup.com/)
-- [Sass](https://sass-lang.com/)
-- [Ant Design](https://ant.design/)
+- [Material UI](https://mui.com/)
 
 ## Usage
 
