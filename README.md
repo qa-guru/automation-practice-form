@@ -1,6 +1,6 @@
 # Automation practice form
 
-![Alt text](https://i.postimg.cc/15Z8SHGS/Screenshot-2023-05-05-at-10-59-53.png)
+![Alt text](https://ibb.co/7gXghXh)
 
 ## Technologies
 
