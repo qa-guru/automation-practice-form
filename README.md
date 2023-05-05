@@ -1,6 +1,6 @@
 # Automation practice form
 
-![Alt text](https://www.imagehost.at/image/XFLhy)
+![Alt text](https://www.imagehost.at/images/2023/05/05/Screenshot-2023-05-05-at-10.59.53.png)
 
 ## Technologies
 
