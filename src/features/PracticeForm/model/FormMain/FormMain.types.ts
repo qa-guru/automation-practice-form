@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
+import { FieldValues } from "react-hook-form";
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface IFormPracticeInput {
   firstName: string;
   lastName: string;
@@ -17,6 +17,6 @@ export interface IFormPracticeInput {
   file: string;
 }
 
-export interface IFormMainProps {
-  setData: Dispatch<SetStateAction<IFormPracticeInput | any>>;
+export interface IFormMainProps<T extends FieldValues = IFormPracticeInput> {
+  setData: Dispatch<SetStateAction<T | undefined>>;
 }
