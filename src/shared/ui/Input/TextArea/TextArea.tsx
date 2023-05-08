@@ -1,10 +1,6 @@
-import { Input, Typography } from "antd";
-import FormItem from "antd/lib/form/FormItem";
+import { FormControl, TextField } from "@mui/material";
 import { Controller } from "react-hook-form";
 import { IFormInputProps } from "../Input.types";
-import styles from "./TextArea.module.scss"
-const { TextArea } = Input;
-
 
 const InputTextArea: React.FC<IFormInputProps> = ({
   name,
@@ -13,21 +9,21 @@ const InputTextArea: React.FC<IFormInputProps> = ({
   placeholder
 }) => {
   return (
-    <FormItem>
-      <Typography>{label}</Typography>
+    <FormControl fullWidth>
       <Controller
         name={name}
         control={control}
         render={({ field: { onChange, value } }) => (
-          <TextArea
-            className={styles.grey}
+          <TextField
+            size={"medium"}
+            label={label}
             placeholder={placeholder}
             value={value}
             onChange={onChange}
           />
         )}
       />
-    </FormItem>
+    </FormControl>
   );
 };
 

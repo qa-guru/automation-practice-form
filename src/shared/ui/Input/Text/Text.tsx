@@ -1,33 +1,33 @@
 import { Controller } from "react-hook-form";
-import { Form, Input, Typography } from "antd";
+import { FormControl, TextField } from "@mui/material";
 import { IFormInputProps } from "../Input.types";
-import styles from "./Text.module.scss"
 
 const InputText: React.FC<IFormInputProps> = ({
   control,
   name,
   placeholder,
   label,
-  yupSync
+  inputProps
 }) => {
   return (
-    <div>
-      <Typography>{label}</Typography>
+    <FormControl fullWidth>
       <Controller
         name={name}
         control={control}
         render={({ field: { onChange, value } }) => (
-          <Form.Item name={name} rules={[yupSync]}>
-            <Input
-              className={styles.grey}
-              value={value}
-              onChange={onChange}
-              placeholder={placeholder}
-            />
-          </Form.Item>
+          <TextField
+            fullWidth
+            size={"medium"}
+            label={label}
+            value={value}
+            onChange={onChange}
+            placeholder={placeholder}
+            variant="outlined"
+            inputProps={inputProps}
+          />
         )}
       />
-    </div>
+    </FormControl>
   );
 };
 

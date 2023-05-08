@@ -1,59 +1,60 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Typography } from 'antd'
-import React, { useEffect, useState } from 'react'
-import styles from './FormResult.module.scss'
-import { IFormResult } from './FormResult.types'
-const { Text } = Typography
+import { useEffect, useState } from "react";
+import { FieldValues } from "react-hook-form";
+import { Typography, Grid } from "@mui/material";
+import { IFormResult } from "./FormResult.types";
 
-const AutoTestsResult: React.FC<IFormResult> = ({ data }) => {
-  const arrayData: any[] = Object.entries(data)
+export function generateDataPairs(data: FieldValues, linesShown: number) {
 
-  const [linesShown, setLinesShown] = useState(0)
-
-  useEffect(() => {
-    if (linesShown < arrayData.length) {
-      setTimeout(() => setLinesShown(linesShown + 1), 1)
+  function formatValue(key: string, value: unknown): string {
+    switch (true) {
+        case Array.isArray(value):
+            return (value as unknown[]).join(", ");
+        case key === "dateOfBirth":
+            return (value as Date)?.toLocaleString();
+        case key === "file":
+            return JSON.stringify((value as File)?.name);
+        default:
+            return String(value);
     }
-  }, [linesShown])
+}
+  const arrayData: [string, unknown][] = Object.entries(data);
 
-  const generateSingleKeys = () => {
-    return arrayData.map((key) =>
-    key[1] != "" && key[1] != [] && key[1] != null ? ( 
-        <p className={styles.keys} key={key}>
-          {key[0]}
-        </p>
-      ) : null
-    ) 
-  }
-  
-  const generateSingleValues = () => {
-    return arrayData.map((value, index) =>
-      index <= linesShown ? (
-        <p className={styles.keys} key={value}>
-          {Array.isArray(value[1])
-            ? value[1].join(', ')
-            : value[0] === 'birthDate'
-            ? value[1]?.toLocaleString()
-            : value[0] === 'file'
-            ? JSON.stringify(value[1].name)
-            : value[1]}
-        </p>
-      ) : null
-    )
-  }
-
-  return (
-    <div className={styles.wrapper}>
-      <Text className={styles.title}>Thanks for submitting the form</Text>
-
-      <div className={styles.result}>
-        <div className={styles.result__keys}>{generateSingleKeys()}</div>
-
-        <div className={styles.result__values}>{generateSingleValues()}</div>
-      </div>
-    </div>
-  )
+  return arrayData.map(([key, value], index) => {
+    return index <= linesShown && value != "" && value != null ? (
+      <Grid container key={`${key}-${index}`} mt={2} wrap="nowrap" columnSpacing={14}>
+        <Grid item xs={2}>
+          <Typography color="primary.main">
+            {key}
+          </Typography>
+        </Grid>
+        <Grid item xs={10}>
+          <Typography color="primaryDark.contrastText">
+            {formatValue(key, value)}
+          </Typography>
+        </Grid>
+      </Grid>
+    ) : null;
+  });
 }
 
-export default AutoTestsResult
+const AutoTestsResult: React.FC<IFormResult> = ({ data }) => {
+  const [linesShown, setLinesShown] = useState(0);
 
+  useEffect(() => {
+    if (linesShown < Object.keys(data).length) {
+      const timeoutId = setTimeout(() => setLinesShown(linesShown + 1), 1);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [linesShown, data]);
+
+  return (
+    <Grid m={3}>
+      <Typography mb={4} variant="h4" color="primaryDark.contrastText">
+        Thank you for submitting the form
+      </Typography>
+      {generateDataPairs(data, linesShown)}
+    </Grid>
+  );
+};
+
+export default AutoTestsResult;

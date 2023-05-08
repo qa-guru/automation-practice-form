@@ -1,19 +1,38 @@
+import React from "react";
 import { Controller } from "react-hook-form";
+import { Slider, FormLabel, Box, FormControl } from "@mui/material";
 import { IFormInputProps } from "../Input.types";
-import FormItem from "antd/lib/form/FormItem";
-import { Slider } from "antd";
 
-const InputSlider = ({ name, control, label, min, max }: IFormInputProps) => {
+const InputSlider: React.FC<IFormInputProps> = ({
+  name,
+  control,
+  label,
+  min = 0,
+  max = 100
+}) => {
   return (
-    <FormItem label={label}>
+    <FormControl fullWidth>
+      <FormLabel>{label}</FormLabel>
       <Controller
         name={name}
         control={control}
         render={({ field: { onChange, value } }) => (
-          <Slider min={min} max={max} onChange={onChange} value={value} />
+          <Box>
+            <Box>
+              <Slider
+                min={min}
+                max={max}
+                onChange={(_, value) => onChange(value)}
+                value={typeof value === "number" ? value : min}
+              />
+            </Box>
+            <Box>
+              <span>{value}</span>
+            </Box>
+          </Box>
         )}
       />
-    </FormItem>
+    </FormControl>
   );
 };
 

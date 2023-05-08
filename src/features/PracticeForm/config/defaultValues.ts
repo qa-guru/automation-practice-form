@@ -4,12 +4,12 @@ export const defaultValues = {
   email: "",
   gender: "",
   phone: "",
-  birthDate: "",
+  dateOfBirth: "",
   subjects: [],
   hobbies: [],
   stateCity: [],
   slider: "",
   language: "",
   address: "",
-  file: ""
+  file: "",
 };

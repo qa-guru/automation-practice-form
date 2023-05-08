@@ -1,12 +1,11 @@
-import { Content } from "antd/lib/layout/layout";
+import { Grid, Box } from "@mui/material"
 import { ContainerProps } from "../Container.types";
-import styles from "./ContainerRight.module.scss";
 
 const ContainerRight = ({ children }: ContainerProps) => {
   return (
-    <div className={styles.content__right}>
-      <Content>{children}</Content>
-    </div>
+    <Grid>
+      <Box>{children}</Box>
+    </Grid>
   );
 };
 

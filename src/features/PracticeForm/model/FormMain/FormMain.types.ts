@@ -1,21 +1,22 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { ISelectDatepicker } from  'react-select-datepicker';
+import { Dispatch, SetStateAction } from "react";
+import { FieldValues } from "react-hook-form";
+
 export interface IFormPracticeInput {
   firstName: string;
   lastName: string;
   email: string;
   gender: string;
   phone: string;
-  birthDate: string;
+  dateOfBirth: string;
   subjects: string[];
   hobbies: string[];
   stateCity: string[];
   slider: string;
   address: string;
   language: string;
-  file: any;
+  file: string;
 }
 
-export interface IFormMainProps {
-  setData: any;
+export interface IFormMainProps<T extends FieldValues = IFormPracticeInput> {
+  setData: Dispatch<SetStateAction<T | undefined>>;
 }

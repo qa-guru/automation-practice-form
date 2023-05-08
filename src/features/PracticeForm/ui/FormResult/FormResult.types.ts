@@ -1,5 +1,6 @@
 import { IFormPracticeInput } from "../../model/FormMain/FormMain.types";
+import {FieldValues} from "react-hook-form";
 
-export interface IFormResult {
-  data: IFormPracticeInput;
+export interface IFormResult<T extends FieldValues = IFormPracticeInput> {
+  data: T;
 }
