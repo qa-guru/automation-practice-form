@@ -1,12 +1,25 @@
 import { useEffect, useState } from "react";
+import { FieldValues } from "react-hook-form";
 import { Typography, Grid } from "@mui/material";
 import { IFormResult } from "./FormResult.types";
 
-export function generateDataPairs(data: Record<string, any>, linesShown: number) {
-  const arrayData: any[] = Object.entries(data);
+export function generateDataPairs(data: FieldValues, linesShown: number) {
 
-  return arrayData.map((item, index) => {
-    const [key, value] = item;
+  function formatValue(key: string, value: unknown): string {
+    switch (true) {
+        case Array.isArray(value):
+            return (value as unknown[]).join(", ");
+        case key === "dateOfBirth":
+            return (value as Date)?.toLocaleString();
+        case key === "file":
+            return JSON.stringify((value as File)?.name);
+        default:
+            return String(value);
+    }
+}
+  const arrayData: [string, unknown][] = Object.entries(data);
+
+  return arrayData.map(([key, value], index) => {
     return index <= linesShown && value != "" && value != null ? (
       <Grid container key={`${key}-${index}`} mt={2} wrap="nowrap" columnSpacing={14}>
         <Grid item xs={2}>
@@ -16,13 +29,7 @@ export function generateDataPairs(data: Record<string, any>, linesShown: number)
         </Grid>
         <Grid item xs={10}>
           <Typography color="primaryDark.contrastText">
-            {Array.isArray(value)
-              ? value.join(", ")
-              : key === "dateOfBirth"
-                ? value?.toLocaleString()
-                : key === "file"
-                  ? JSON.stringify(value.name)
-                  : value}
+            {formatValue(key, value)}
           </Typography>
         </Grid>
       </Grid>
