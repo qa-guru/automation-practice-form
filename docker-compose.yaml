@@ -3,7 +3,7 @@ version: '3.7'
 services:
   automotation:
     container_name: automotation
+    restart: always    
     image: automotation:latest
     ports:
       - "2002:80"
-   restart: always      
