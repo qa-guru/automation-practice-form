@@ -17,8 +17,8 @@ jobs:
       - name: deploy
         run: |
          pwd
-         docker build . --tag test_automo:latest
-         docker compose up -d
+         docker build . --tag automotation:latest
+         docker compose up -d --force-recreate automotation
          echo "done"
 
   runtest:
