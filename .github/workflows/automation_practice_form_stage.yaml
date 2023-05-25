@@ -18,7 +18,7 @@ jobs:
         run: |
          pwd
          docker build . --tag automotation:latest
-         docker compose up -d --force-recreate automotation
+         docker compose -f docker-compose.yaml up -d --force-recreate automotation
          echo "done"
 
   runtest:
