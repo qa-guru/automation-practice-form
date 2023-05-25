@@ -1,0 +1,30 @@
+name: automation_practice_form_stage
+on:
+  push:
+    branches: 
+      - CICD
+jobs:
+  checkout:
+    runs-on: stage-runner
+    
+    steps:
+      - uses: actions/checkout@v3
+  
+  deploy:
+    runs-on: stage-runner
+    needs: checkout
+    steps:  
+      - name: deploy
+        run: |
+         pwd
+         docker build . --tag test_automo:latest
+         docker compose up -d
+         echo "done"
+
+  runtest:
+    runs-on: stage-runner
+    needs: deploy
+    steps:  
+      - name: runtest
+        run:  docker run --rm qa-guru-e2e-tests-api:latest  gradle clean smokeApi -Denv="stage"
+        
