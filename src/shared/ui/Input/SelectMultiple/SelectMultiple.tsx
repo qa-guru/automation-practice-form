@@ -38,9 +38,8 @@ const InputSelectMultiple: React.FC<IFormInputProps> = ({
             renderValue={(selected) => (
               <Box sx={{ display: "flex", flexWrap: "wrap" }}>
                 {selected.map((selectedValue) => (
-                  <Box p={0.2}>
+                  <Box key={selectedValue} p={0.2}>
                     <Chip
-                      key={selectedValue}
                       label={selectedValue}
                       onDelete={() =>
                         onChange((value as string[]).filter((value) => value !== selectedValue))
