@@ -2,7 +2,7 @@ name: automation_practice_form_prod
 on:
   push:
     branches: 
-      - master
+      - main
 jobs:
   checkout:
     runs-on: prod-runner
