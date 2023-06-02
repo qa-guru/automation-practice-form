@@ -35,7 +35,7 @@ const FormMain: React.FC<IFormMainProps> = ({ setData }) => {
     (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       const value = e.target.value;
 
-      trigger(name).then((isValid: any) => {
+      trigger(name).then((isValid: boolean) => {
         if (isValid && !value) {
           setError(name, {
             type: "manual",
