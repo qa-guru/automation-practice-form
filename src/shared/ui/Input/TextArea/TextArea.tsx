@@ -15,11 +15,17 @@ const InputTextArea: React.FC<IFormInputProps> = ({
         control={control}
         render={({ field: { onChange, value } }) => (
           <TextField
-            size={"medium"}
+            variant={"outlined"}
             label={label}
             placeholder={placeholder}
             value={value}
             onChange={onChange}
+            multiline
+            inputProps={{
+                style: {
+                    height: "84px",
+                },
+            }}
           />
         )}
       />
