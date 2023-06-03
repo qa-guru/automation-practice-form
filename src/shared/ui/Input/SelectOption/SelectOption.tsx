@@ -1,6 +1,6 @@
 import React from "react";
 import { Controller } from "react-hook-form";
-import { FormControl, InputLabel, MenuItem, Select, Box } from "@mui/material";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { IFormInputProps } from "../Input.types";
 
 const InputSelectOption: React.FC<IFormInputProps> = ({
