@@ -1,102 +1,104 @@
 import React, { useEffect, useState } from "react";
-import { Controller } from "react-hook-form";
-import { FormControl, Select, MenuItem, SelectChangeEvent, InputLabel, Box, Stack } from "@mui/material";
+import {FormControl, Select, MenuItem, SelectChangeEvent, InputLabel, Stack, Box} from "@mui/material";
 import { IFormInputProps } from "../Input.types";
+import { Controller } from "react-hook-form";
 
 interface Option {
-  value: string;
-  label: string;
-  children?: Option[];
+    value: string;
+    label: string;
+    children?: Option[];
 }
 
 const InputSelectConnected: React.FC<IFormInputProps> = ({
-  name,
-  setValue,
-  control,
-  content,
-  label,
+    name,
+    setValue,
+    content,
+    control
 }) => {
-  const [selectedState, setSelectedState] = useState<string>("");
-  const [selectedCity, setSelectedCity] = useState<string>("");
+    const [selectedState, setSelectedState] = useState<string>("");
+    const [selectedCity, setSelectedCity] = useState<string>("");
+    const [isCityDisabled, setIsCityDisabled] = useState<boolean>(true);
 
-  function convertLocationSchema(): Option[] {
-    return (content || []).map((option) => {
-      if (typeof option === "string") {
-        return {
-          value: option,
-          label: option,
-        };
-      }
-      return {
-        value: option.state,
-        label: option.state,
-        children: option.cities.map((city) => ({
-          value: city,
-          label: city,
-        })),
-      };
-    });
-  }
-
-  useEffect(() => {
-    if (selectedState && selectedCity && setValue) {
-      setValue(name, `${selectedState}, ${selectedCity}`);
+    function convertLocationSchema(): Option[] {
+        return (content || []).map((option) => {
+            if (typeof option === "string") {
+                return {
+                    value: option,
+                    label: option,
+                };
+            }
+            return {
+                value: option.state,
+                label: option.state,
+                children: option.cities.map((city) => ({
+                    value: city,
+                    label: city,
+                })),
+            };
+        });
     }
-  }, [selectedState, selectedCity, setValue]);
 
-  const handleStateChange = (event: SelectChangeEvent<string>) => {
-    setSelectedState(event.target.value);
-  };
+    useEffect(() => {
+        if (selectedState && selectedCity && setValue) {
+            setValue(name, `${selectedState}, ${selectedCity}`);
+        }
+    }, [selectedState, selectedCity, setValue]);
 
-  const handleCityChange = (event: SelectChangeEvent<string>) => {
-    setSelectedCity(event.target.value);
-  };
+    const handleStateChange = (event: SelectChangeEvent<string>) => {
+        setSelectedState(event.target.value);
+        setIsCityDisabled(false);
+    };
 
-  const renderStateOptions = () =>
-    convertLocationSchema().map((option: Option) => (
-      <MenuItem key={option.value} value={option.value}>
-        {option.label}
-      </MenuItem>
-    ));
+    const handleCityChange = (event: SelectChangeEvent<string>) => {
+        setSelectedCity(event.target.value);
+    };
 
-  const renderCityOptions = () =>
-    convertLocationSchema()
-      .find((option: Option) => option.value === selectedState)
-      ?.children?.map((option: Option) => (
-        <MenuItem key={option.value} value={option.value}>
-          {option.label}
-        </MenuItem>
-      ));
+    const renderStateOptions = () =>
+        convertLocationSchema().map((option: Option) => (
+            <MenuItem key={option.value} value={option.value}>
+                {option.label}
+            </MenuItem>
+        ));
 
-  return (
-    <Stack>
-      <Controller
-        control={control}
-        name={name}
-        render={() => (
-          <FormControl fullWidth>
-            <InputLabel>
-              {label}
-            </InputLabel>
-            <Select value={selectedState} onChange={handleStateChange}>
-              <MenuItem value="" />
-              {renderStateOptions()}
-            </Select>
-            {selectedState && (
-              <Box mt={3}>
-                <FormControl fullWidth>
-                  <Select value={selectedCity} onChange={handleCityChange}>
-                    <MenuItem value="" />
-                    {renderCityOptions()}
-                  </Select>
-                </FormControl>
-              </Box>
-            )}
-          </FormControl>
-        )}
-      />
-    </Stack>
-  );
+    const renderCityOptions = () =>
+        convertLocationSchema()
+            .find((option: Option) => option.value === selectedState)
+            ?.children?.map((option: Option) => (
+            <MenuItem key={option.value} value={option.value}>
+                {option.label}
+            </MenuItem>
+        ));
+
+    return (
+        <Box width={"100%"}>
+            <Controller
+                control={control}
+                name={name}
+                render={() => (
+                    <Stack direction="row" spacing={2}>
+                        <FormControl fullWidth>
+                            <InputLabel>State</InputLabel>
+                            <Select value={selectedState} onChange={handleStateChange}>
+                                <MenuItem value="" />
+                                {renderStateOptions()}
+                            </Select>
+                        </FormControl>
+                        <FormControl fullWidth>
+                            <InputLabel>City</InputLabel>
+                            <Select
+                                value={selectedCity}
+                                onChange={handleCityChange}
+                                disabled={isCityDisabled}
+                            >
+                                <MenuItem value="" />
+                                {renderCityOptions()}
+                            </Select>
+                        </FormControl>
+                    </Stack>
+                )}
+            />
+        </Box>
+    );
 };
 
 export default InputSelectConnected;
