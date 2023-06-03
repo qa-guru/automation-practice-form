@@ -70,7 +70,7 @@ const InputFileUpload: React.FC<IFormInputProps> = ({
                 <Grid container direction="column" {...getRootProps()}
                   sx={{
                     border: `1px dashed ${theme.palette.secondary.main}`,
-                    padding: "30px",
+                    padding: "5px",
                     borderRadius: "5px",
                     display: "flex",
                     alignItems: "center",
