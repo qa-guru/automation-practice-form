@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FieldValues } from "react-hook-form";
 import { Typography, Grid } from "@mui/material";
 import { IFormResult } from "./FormResult.types";
+import { theme } from "../../../../theme";
 
 export function generateDataPairs(data: FieldValues, linesShown: number) {
 
@@ -21,13 +22,19 @@ export function generateDataPairs(data: FieldValues, linesShown: number) {
 
   return arrayData.map(([key, value], index) => {
     return index <= linesShown && value != "" && value != null ? (
-      <Grid container key={`${key}-${index}`} mt={2} wrap="nowrap" columnSpacing={14}>
-        <Grid item xs={2}>
+      <Grid container key={`${key}-${index}`} wrap="nowrap" columnSpacing={2}>
+        <Grid item xl={2} lg={3} md={3} sm={4} xs={4} p={1.5}
+              sx={{
+                  border: `0.5px dotted ${theme.palette.primary.main}`
+              }}>
           <Typography color="primary.main">
             {key}
           </Typography>
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xl={10} lg={7} md={7} sm={8} xs={8} p={1.5}
+              sx={{
+                  border: `0.5px dotted ${theme.palette.primary.main}`
+              }}>
           <Typography color="primaryDark.contrastText">
             {formatValue(key, value)}
           </Typography>
@@ -48,11 +55,11 @@ const AutoTestsResult: React.FC<IFormResult> = ({ data }) => {
   }, [linesShown, data]);
 
   return (
-    <Grid m={3}>
+    <Grid m={4}>
       <Typography mb={4} variant="h4" color="primaryDark.contrastText">
         Thank you for submitting the form
       </Typography>
-      {generateDataPairs(data, linesShown)}
+        {generateDataPairs(data, linesShown)}
     </Grid>
   );
 };
