@@ -79,27 +79,24 @@ const ModalComponent = () => {
             }}
         >
             <Box sx={styles.container}>
-                <Grid container display={"flex"} alignItems="center" mb={3}>
+                <Grid container display="flex" alignItems="center" mb={3}>
                     <Grid item sx={styles.logoContainer}>
                         <Box sx={styles.logoBox}>
-                            <Icon
-                                component={LogoIcon}
-                                sx={styles.logoIcon}
-                            />
+                            <Icon component={LogoIcon} sx={styles.logoIcon} />
                         </Box>
                     </Grid>
                     <Grid item>
-                        <Box sx={styles.closeButton}>
-                            <ClearIcon onClick={handleClose} />
+                        <Box sx={styles.closeButton} onClick={handleClose}>
+                            <ClearIcon />
                         </Box>
                     </Grid>
                 </Grid>
                 <Box sx={styles.contentBox}>
-                    <Typography mb={1} fontSize="24px">Записывайтесь<br />на обучение в</Typography>
-                    <Icon
-                        component={LogoIconDark}
-                        sx={styles.darkLogoIcon}
-                    />
+                    <Typography mb={1} fontSize="24px">
+                        Записывайтесь<br />
+                        на обучение в
+                    </Typography>
+                    <Icon component={LogoIconDark} sx={styles.darkLogoIcon} />
                     <Box>
                         <Button
                             variant="contained"
