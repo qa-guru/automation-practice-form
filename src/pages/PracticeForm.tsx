@@ -10,7 +10,7 @@ const PracticeForm: React.FC = () => {
   const [data, setData] = useState<IFormPracticeInput>();
 
   return (
-    <Grid container>
+    <Grid container pb="96px">
       <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
         <ContainerLeft>
           <FormMain setData={setData} />

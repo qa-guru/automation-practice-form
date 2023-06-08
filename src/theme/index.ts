@@ -4,9 +4,11 @@ import "./fonts.css";
 declare module "@mui/material/styles" {
   interface Palette {
     primaryDark: Palette["primary"];
+    secondaryDark: Palette["secondary"];
   }
   interface PaletteOptions {
     primaryDark: PaletteOptions["primary"];
+    secondaryDark: PaletteOptions["secondary"];
   }
 }
 
@@ -21,6 +23,9 @@ export const theme = createTheme({
     primaryDark: {
       main: "#263238",
       contrastText: "#FFFFFF",
+    },
+    secondaryDark: {
+      main: "#4A4458",
     },
   },
   typography: {

@@ -1,0 +1,30 @@
+name: automation_practice_form_prod
+on:
+  push:
+    branches: 
+      - main
+jobs:
+  checkout:
+    runs-on: prod-runner
+    
+    steps:
+      - uses: actions/checkout@v3
+  
+  deploy:
+    runs-on: prod-runner
+    needs: checkout
+    steps:  
+      - name: deploy
+        run: |
+         pwd
+         docker build . --tag automotation:latest
+         docker compose -f docker-compose.yaml up -d --force-recreate automotation
+         echo "done"
+
+  runtest:
+    runs-on: prod-runner
+    needs: deploy
+    steps:  
+      - name: runtest
+        run:  docker run --rm qa-guru-e2e-tests-api:latest  gradle clean smokeApi -Denv="stage"
+        
