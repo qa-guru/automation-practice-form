@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Modal, Box, Grid, Icon, Typography, Button } from "@mui/material";
-import { ReactComponent as LogoIcon } from "../../assets/logo.svg";
+import { Modal, Box, Icon, Typography, Button } from "@mui/material";
 import { ReactComponent as LogoIconDark } from "../../assets/logoDark.svg";
 import ClearIcon from "@mui/icons-material/Clear";
 
 const styles = {
+    modal: {
+        display: 'flex',
+        position: "fixed",
+        bottom: "100px",
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: {xs: "25px"}
+    },
     container: {
         outline: "none",
         "&:hover": {
@@ -25,7 +32,11 @@ const styles = {
     },
     closeButton: {
         cursor: "pointer",
+        position: "relative",
+        top: "20px",
+        left: "20px",
         display: "flex",
+        marginLeft: "auto",
         justifyContent: "center",
         alignItems: "center",
         width: "40px",
@@ -42,7 +53,7 @@ const styles = {
     darkLogoIcon: {
         height: "30px",
         width: "166px",
-        margin: "20px 0",
+        margin: "5px 0",
     },
     button: {
         color: "primaryDark.contrastText"
@@ -70,33 +81,17 @@ const ModalComponent = () => {
     };
 
     return (
-        <Modal
-            open={open}
-            style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-            }}
-        >
+        <Modal sx={styles.modal} open={open} >
             <Box sx={styles.container}>
-                <Grid container display="flex" alignItems="center" mb={3}>
-                    <Grid item sx={styles.logoContainer}>
-                        <Box sx={styles.logoBox}>
-                            <Icon component={LogoIcon} sx={styles.logoIcon} />
-                        </Box>
-                    </Grid>
-                    <Grid item>
-                        <Box sx={styles.closeButton} onClick={handleClose}>
-                            <ClearIcon />
-                        </Box>
-                    </Grid>
-                </Grid>
+                <Box sx={styles.closeButton} onClick={handleClose}>
+                    <ClearIcon />
+                </Box>
                 <Box sx={styles.contentBox}>
-                    <Typography mb={1} fontSize="24px">
-                        Записывайтесь<br />
-                        на обучение в
-                    </Typography>
                     <Icon component={LogoIconDark} sx={styles.darkLogoIcon} />
+                    <Typography mb={3} fontSize="24px">
+                        Записывайтесь на <br />
+                        обучение в QA GURU
+                    </Typography>
                     <Box>
                         <Button
                             variant="contained"
