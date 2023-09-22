@@ -16,6 +16,7 @@ const InputText: React.FC<IFormInputProps> = ({
         control={control}
         render={({ field: { onChange, value } }) => (
           <TextField
+            data-testid={`${name}`}
             fullWidth
             size={"medium"}
             label={label}
@@ -23,7 +24,7 @@ const InputText: React.FC<IFormInputProps> = ({
             onChange={onChange}
             placeholder={placeholder}
             variant="outlined"
-            inputProps={inputProps}
+            inputProps={{ ...inputProps, "data-testid": `${name}` }}
           />
         )}
       />

@@ -1,6 +1,13 @@
 import React from "react";
 import { Controller } from "react-hook-form";
-import { Chip, FormControl, InputLabel, MenuItem, Select, Box } from "@mui/material";
+import {
+  Chip,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  Box
+} from "@mui/material";
 import { Cancel } from "@mui/icons-material";
 import { IFormInputProps } from "../Input.types";
 
@@ -23,26 +30,29 @@ const InputSelectMultiple: React.FC<IFormInputProps> = ({
 
   return (
     <FormControl fullWidth>
-      <InputLabel>
-        {label}
-      </InputLabel>
+      <InputLabel>{label}</InputLabel>
       <Controller
         control={control}
         name={name}
         render={({ field: { onChange, value } }) => (
           <Select
+            inputProps={{ "data-testid": `${name}` }}
             size={"medium"}
             multiple
             value={value as string[]}
             onChange={onChange}
-            renderValue={(selected) => (
+            renderValue={selected => (
               <Box sx={{ display: "flex", flexWrap: "wrap" }}>
-                {selected.map((selectedValue) => (
+                {selected.map(selectedValue => (
                   <Box key={selectedValue} p={0.2}>
                     <Chip
                       label={selectedValue}
                       onDelete={() =>
-                        onChange((value as string[]).filter((value) => value !== selectedValue))
+                        onChange(
+                          (value as string[]).filter(
+                            value => value !== selectedValue
+                          )
+                        )
                       }
                       deleteIcon={
                         <Cancel
