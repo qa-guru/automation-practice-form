@@ -22,14 +22,16 @@ const InputSelectOption: React.FC<IFormInputProps> = ({
 
   return (
     <FormControl fullWidth>
-      <InputLabel>
-        {label}
-      </InputLabel>
+      <InputLabel>{label}</InputLabel>
       <Controller
         control={control}
         name={name}
         render={({ field: { onChange, value } }) => (
-          <Select onChange={onChange} value={value}>
+          <Select
+            onChange={onChange}
+            value={value}
+            inputProps={{ "data-testid": `${name}` }}
+          >
             <MenuItem value="" disabled />
             {generateSingleOptions()}
           </Select>

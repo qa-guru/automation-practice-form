@@ -27,7 +27,7 @@ const InputPhone: React.FC<IFormInputProps> = ({
               value={Array.isArray(value) ? value.join(", ") : value}
               onChange={onChange}
               placeholder={placeholder}
-              inputProps={inputProps}
+              inputProps={{ ...inputProps, "data-testid": `${name}` }}
             />
           </FormControl>
         )}

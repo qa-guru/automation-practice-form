@@ -8,7 +8,7 @@ const FormViews: React.FC<IFormViewsProps> = ({
   control,
   setValue,
   errors,
-  handleChange,
+  handleChange
 }) => {
   return (
     <>
@@ -21,7 +21,9 @@ const FormViews: React.FC<IFormViewsProps> = ({
                 control={control}
                 label="First Name"
                 placeholder="John"
-                inputProps={{ onChange: handleChange("Name", "firstName", 15, 3) }}
+                inputProps={{
+                  onChange: handleChange("Name", "firstName", 15, 3)
+                }}
               />
               {errors?.firstName && (
                 <FormHelperText error>
@@ -37,7 +39,9 @@ const FormViews: React.FC<IFormViewsProps> = ({
                 control={control}
                 label="Last Name"
                 placeholder="Snow"
-                inputProps={{ onChange: handleChange("Last Name", "lastName", 15, 3) }}
+                inputProps={{
+                  onChange: handleChange("Last Name", "lastName", 15, 3)
+                }}
               />
               {errors?.lastName && (
                 <FormHelperText error>
@@ -53,12 +57,12 @@ const FormViews: React.FC<IFormViewsProps> = ({
                 control={control}
                 label="E-mail"
                 placeholder="name@example.com"
-                inputProps={{ onChange: handleChange("E-mail", "email", 25, 15) }}
+                inputProps={{
+                  onChange: handleChange("E-mail", "email", 25, 15)
+                }}
               />
               {errors?.email && (
-                <FormHelperText error>
-                  {errors?.email.message}
-                </FormHelperText>
+                <FormHelperText error>{errors?.email.message}</FormHelperText>
               )}
             </FormControl>
           </Grid>
@@ -72,9 +76,7 @@ const FormViews: React.FC<IFormViewsProps> = ({
                 inputProps={{ onChange: handleChange("Phone number", "phone") }}
               />
               {errors?.phone && (
-                <FormHelperText error>
-                  {errors?.phone.message}
-                </FormHelperText>
+                <FormHelperText error>{errors?.phone.message}</FormHelperText>
               )}
             </FormControl>
           </Grid>
@@ -107,9 +109,7 @@ const FormViews: React.FC<IFormViewsProps> = ({
               content={Content.GenderContent.options}
             />
             {errors?.gender && (
-              <FormHelperText error>
-                {errors?.gender.message}
-              </FormHelperText>
+              <FormHelperText error>{errors?.gender.message}</FormHelperText>
             )}
           </FormControl>
         </Grid>

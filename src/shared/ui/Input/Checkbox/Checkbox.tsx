@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Controller } from "react-hook-form";
-import { FormControlLabel, FormGroup, Checkbox, FormLabel, FormControl } from "@mui/material";
+import {
+  FormControlLabel,
+  FormGroup,
+  Checkbox,
+  FormLabel,
+  FormControl
+} from "@mui/material";
 import { IFormInputProps } from "../Input.types";
 
 const InputCheckbox: React.FC<IFormInputProps> = ({
@@ -14,15 +20,22 @@ const InputCheckbox: React.FC<IFormInputProps> = ({
 
   const generateCheckboxOptions = () => {
     return content?.map((value, index) => {
-      if (typeof value === "string")
+      if (typeof value === "string") {
         return (
           <FormControlLabel
             key={index}
             value={value}
-            control={<Checkbox onChange={handleChange(value)} />}
+            control={
+              <Checkbox
+                onChange={handleChange(value)}
+                // @ts-ignore
+                inputProps={{ "data-testid": `${name}` }}
+              />
+            }
             label={value}
           />
         );
+      }
     });
   };
 
@@ -31,17 +44,14 @@ const InputCheckbox: React.FC<IFormInputProps> = ({
     checked: boolean
   ) => {
     if (checked) {
-      setSelectedValues((prevState) => [...prevState, value]);
+      setSelectedValues(prevState => [...prevState, value]);
     } else {
-      setSelectedValues((prevState) =>
-        prevState.filter((item) => item !== value)
-      );
+      setSelectedValues(prevState => prevState.filter(item => item !== value));
     }
   };
 
   useEffect(() => {
-    if (setValue)
-      setValue(name, selectedValues);
+    if (setValue) setValue(name, selectedValues);
   }, [name, selectedValues, setValue]);
 
   return (
