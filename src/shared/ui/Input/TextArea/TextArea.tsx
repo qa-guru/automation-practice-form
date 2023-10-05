@@ -22,9 +22,10 @@ const InputTextArea: React.FC<IFormInputProps> = ({
             onChange={onChange}
             multiline
             inputProps={{
-                style: {
-                    height: "84px",
-                },
+              style: {
+                height: "84px"
+              },
+              "data-testid": `${name}`
             }}
           />
         )}
