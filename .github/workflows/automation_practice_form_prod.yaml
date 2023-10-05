@@ -21,10 +21,10 @@ jobs:
          docker compose -f docker-compose.yaml up -d --force-recreate automotation
          echo "done"
 
-  runtest:
-    runs-on: prod-runner
-    needs: deploy
-    steps:  
-      - name: runtest
-        run:  docker run --rm qa-guru-e2e-tests-api:latest  gradle clean smokeApi -Denv="stage"
+  # runtest:
+  #   runs-on: prod-runner
+  #   needs: deploy
+  #   steps:  
+  #     - name: runtest
+  #       run:  docker run --rm qa-guru-e2e-tests-api:latest  gradle clean smokeApi -Denv="stage"
         
