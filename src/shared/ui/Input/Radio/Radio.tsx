@@ -1,11 +1,11 @@
 import React from "react";
 import { Controller } from "react-hook-form";
 import {
-  FormLabel,
   FormControl,
-  RadioGroup,
   FormControlLabel,
-  Radio
+  FormLabel,
+  Radio,
+  RadioGroup
 } from "@mui/material";
 import { IFormInputProps } from "../Input.types";
 
@@ -25,8 +25,7 @@ const InputRadio: React.FC<IFormInputProps> = ({
             control={
               <Radio
                 inputProps={{
-                  // @ts-ignore
-                  "data-testid": `${name}`
+                  ...({ "data-testid": `${name}` } as any)
                 }}
               />
             }

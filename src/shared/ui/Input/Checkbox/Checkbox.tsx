@@ -28,8 +28,7 @@ const InputCheckbox: React.FC<IFormInputProps> = ({
             control={
               <Checkbox
                 onChange={handleChange(value)}
-                // @ts-ignore
-                inputProps={{ "data-testid": `${name}` }}
+                inputProps={{ ...({ "data-testid": `${name}` } as any) }}
               />
             }
             label={value}
