@@ -18,8 +18,9 @@ const InputDate: React.FC<IFormInputProps> = ({ control, label, name }) => {
           control={control}
           render={({ field: { onChange, value } }) => (
             <DatePicker
+              views={["year", "month", "day"]}
               label={label}
-              onChange={date => onChange(handleDateChange(date))}
+              onChange={(date) => onChange(handleDateChange(date))}
               value={
                 typeof value === "string" ? dayjs(value, "DD/MM/YYYY") : null
               }
@@ -28,9 +29,9 @@ const InputDate: React.FC<IFormInputProps> = ({ control, label, name }) => {
                 textField: {
                   error: false,
                   inputProps: {
-                    "data-testid": `${name}`
-                  }
-                }
+                    "data-testid": `${name}`,
+                  },
+                },
               }}
             />
           )}
