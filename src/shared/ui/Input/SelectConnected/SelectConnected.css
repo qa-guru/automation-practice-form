@@ -1,0 +1,45 @@
+.city-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    position: absolute;
+    top: 16px;
+    left: 12px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.7);
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+}
+
+.city-label.active {
+    top: -8px;
+    font-size: 12px;
+}
+
+.city-select {
+    width: 100%;
+    padding: 18px 12px;
+    font-size: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    color: rgba(0, 0, 0, 0.9);
+    border-radius: 4px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+option:first-child{
+    display: none;
+}
+
+option {
+    background-color: white !important;
+}
+
+.arrow-icon {
+    position: absolute;
+    top: 16px;
+    right: 4px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
