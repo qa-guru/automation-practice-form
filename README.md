@@ -1,49 +1,64 @@
 # Automation practice form
 
-## Technologies
+A modern student form to practice automation testing built with React and React Hook Form.
 
-- [React](https://reactjs.org/)
-- [React Hook Form](https://react-hook-form.com/)
-- [Yup](https://yup.com/)
-- [Material UI](https://mui.com/)
+![Automation Practice Form Screenshot](./public/screenshot.png)
 
-## Usage
+## 🛠 Technologies
 
-### Installing dependencies
-To install dependencies, run the command:
-```sh
-$ yarn
+- **React** - JavaScript library for building user interfaces.
+- **React Hook Form** - Performant, flexible and extensible forms library for React Hooks.
+- **Yup** - JavaScript schema builder for value parsing and validation.
+- **Material UI** - A simple, customizable, and accessible library of React components.
+
+## ✨ Features
+
+– 📜 React Hook Form – Efficient form state management with validation and error handling.
+– ✅ Yup Validation – Schema-based form validation with custom error messages.
+- 📝 Diverse Input Fields – Includes text fields, select dropdowns, radio buttons, checkboxes, sliders, and drag & drop file upload.
+– 📤 Submit Handling – Submitted data is displayed in a structured format on the screen.
+– 🚀 Realistic Testing Scenario – Simulates real-world form filling with various input types.
+– ⚡ Responsive UI – Ensures proper display on different screen sizes.
+
+## 🚀 Installation and Setup
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/automation-practice-form.git
 ```
 
-### Running in the development mode
-To run the app in the development mode and view it in browser, run the command:
-```sh
-$ yarn start
+2. Navigate to the project directory:
+
+```bash
+cd automation-practice-form
 ```
 
-### Launching the test runner
-To launch the test runner in the interactive watch mode, run the command:
-```sh
-$ yarn test
+3. Install dependencies:
+
+```bash
+yarn
 ```
-Look up the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### Building for production
-To build the app for production to the `build` folder, run the command:
-```sh
-$ yarn run build
+4. Start the development server:
+
+```bash
+yarn start
 ```
-It correctly bundles React in production mode and optimizes the build for the best performance.
-Look up the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Removing the single build dependency
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-To remove the single build dependency from your project, run the command:
-```sh
-$ yarn run eject
-```
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🔧 Available Scripts
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- `yarn start` - Runs the app in development mode at http://localhost:3000
+- `yarn test` - Launches the test runner in interactive watch mode
+- `yarn run build` - Builds the app for production in the `build` folder
+- `yarn run eject` - Removes the single build dependency from your project
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create your feature branch: `git checkout -b feature/new-feature`
+3. Commit your changes: `git commit -m 'Add new feature'`
+4. Push to the branch: `git push origin feature/new-feature`
+5. Submit a pull request
