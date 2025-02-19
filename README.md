@@ -13,12 +13,12 @@ A modern student form to practice automation testing built with React and React 
 
 ## ✨ Features
 
-– 📜 React Hook Form – Efficient form state management with validation and error handling
-– ✅ Yup Validation – Schema-based form validation with custom error messages
+- 📜 React Hook Form – Efficient form state management with validation and error handling
+- ✅ Yup Validation – Schema-based form validation with custom error messages
 - 📝 Diverse Input Fields – Includes text fields, select dropdowns, radio buttons, checkboxes, sliders, and drag & drop file upload
-– 📤 Submit Handling – Submitted data is displayed in a structured format on the screen
-– 🚀 Realistic Testing Scenario – Simulates real-world form filling with various input types
-– ⚡ Responsive UI – Ensures proper display on different screen sizes.
+- 📤 Submit Handling – Submitted data is displayed in a structured format on the screen
+- 🚀 Realistic Testing Scenario – Simulates real-world form filling with various input types
+- ⚡ Responsive UI – Ensures proper display on different screen sizes.
 
 ## 🚀 Installation and Setup
 
