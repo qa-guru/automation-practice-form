@@ -8,7 +8,7 @@ import {
     Stack,
     Box
 } from "@mui/material";
-import { ArrowDropDown, ArrowDropUp } from "@mui/icons-material";
+import { ArrowDropDown } from "@mui/icons-material";
 import { IFormInputProps } from "../Input.types";
 import { Controller } from "react-hook-form";
 import "./SelectConnected.css";

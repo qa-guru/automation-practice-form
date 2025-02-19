@@ -5,7 +5,7 @@ import {
   FormControlLabel,
   FormLabel,
   Radio,
-  RadioGroup
+  RadioGroup,
 } from "@mui/material";
 import { IFormInputProps } from "../Input.types";
 
@@ -13,7 +13,7 @@ const InputRadio: React.FC<IFormInputProps> = ({
   control,
   label,
   name,
-  content
+  content,
 }) => {
   const generateRadioOptions = () => {
     return content?.map((value, index) => {
@@ -24,9 +24,11 @@ const InputRadio: React.FC<IFormInputProps> = ({
             value={value}
             control={
               <Radio
-                inputProps={{
-                  ...({ "data-testid": `${name}` } as any)
-                }}
+                inputProps={
+                  { "data-testid": `${name}` } as React.InputHTMLAttributes<
+                    HTMLInputElement
+                  >
+                }
               />
             }
             label={value}

@@ -3,7 +3,7 @@ import { Controller } from "react-hook-form";
 import { IFormInputProps } from "../Input.types";
 import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { FormControl, TextField } from "@mui/material";
+import { FormControl } from "@mui/material";
 import dayjs, { Dayjs } from "dayjs";
 
 const InputDate: React.FC<IFormInputProps> = ({ control, label, name }) => {

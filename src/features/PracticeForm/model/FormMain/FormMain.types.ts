@@ -7,14 +7,14 @@ export interface IFormPracticeInput {
   email: string;
   gender: string;
   phone: string;
-  dateOfBirth: string;
-  subjects: string[];
-  hobbies: string[];
-  stateCity: string[];
-  slider: string;
-  address: string;
-  language: string;
-  file: string;
+  dateOfBirth?: string;
+  subjects?: string[];
+  hobbies?: string[];
+  stateCity?: string[];
+  slider?: string;
+  address?: string;
+  language?: string;
+  file?: string;
 }
 
 export interface IFormMainProps<T extends FieldValues = IFormPracticeInput> {
