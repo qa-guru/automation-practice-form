@@ -77,10 +77,12 @@ export const theme = createTheme({
         html: {
           width: "100%",
           height: "100%",
+          overscrollBehavior: "none",
         },
         body: {
           width: "100%",
           height: "100%",
+          overscrollBehavior: "none"
         },
       },
     },

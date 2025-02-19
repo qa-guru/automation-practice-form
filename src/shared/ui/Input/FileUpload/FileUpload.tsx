@@ -10,13 +10,18 @@ import { theme } from "../../../../theme";
 
 type ExtendedFile = File & { reason?: string };
 
-const acceptedImageTypes = ["image/jpg", "image/png", "image/svg", "image/gif"];
+const acceptedImageTypes = [
+  "image/jpeg",
+  "image/png",
+  "image/svg+xml",
+  "image/gif",
+];
 const maxFileSize = 3000000;
 
 const InputFileUpload: React.FC<IFormInputProps> = ({
   control,
   name,
-  setValue
+  setValue,
 }) => {
   const [fileValue, setFileValue] = useState<ExtendedFile[]>([]);
   const [invalidFiles, setInvalidFiles] = useState<ExtendedFile[]>([]);
@@ -24,8 +29,7 @@ const InputFileUpload: React.FC<IFormInputProps> = ({
   useEffect(() => {
     if (fileValue.length > 0) {
       const fileNames = fileValue.map((file) => file.name);
-      if (setValue)
-        setValue(name, fileNames);
+      if (setValue) setValue(name, fileNames);
     }
   }, [fileValue, name, setValue]);
 
@@ -41,21 +45,24 @@ const InputFileUpload: React.FC<IFormInputProps> = ({
   };
 
   const handleChange = (acceptedFiles: File[]) => {
-    const filteredFiles = acceptedFiles.filter((file) =>
-      acceptedImageTypes.includes(file.type) && file.size <= maxFileSize
-    );
-    const invalidFiles = acceptedFiles.filter(
+    const filteredFiles = acceptedFiles.filter(
       (file) =>
-        !acceptedImageTypes.includes(file.type) || file.size > maxFileSize
-    ).map(file => ({
-      ...file,
-      reason: !acceptedImageTypes.includes(file.type)
-        ? "Invalid extension"
-        : "File is too large"
-    })) as ExtendedFile[];
+        acceptedImageTypes.includes(file.type) && file.size <= maxFileSize
+    );
+    const invalidFiles = acceptedFiles
+      .filter(
+        (file) =>
+          !acceptedImageTypes.includes(file.type) || file.size > maxFileSize
+      )
+      .map((file) => ({
+        ...file,
+        reason: !acceptedImageTypes.includes(file.type)
+          ? "Invalid extension"
+          : "File is too large",
+      })) as ExtendedFile[];
 
-    setFileValue(prevFiles => [...prevFiles, ...filteredFiles]);
-    setInvalidFiles(prevFiles => [...prevFiles, ...invalidFiles]);
+    setFileValue((prevFiles) => [...prevFiles, ...filteredFiles]);
+    setInvalidFiles((prevFiles) => [...prevFiles, ...invalidFiles]);
   };
 
   return (
@@ -67,7 +74,10 @@ const InputFileUpload: React.FC<IFormInputProps> = ({
           <div>
             <Dropzone onDrop={(acceptedFiles) => handleChange(acceptedFiles)}>
               {({ getRootProps, getInputProps }) => (
-                <Grid container direction="column" {...getRootProps()}
+                <Grid
+                  container
+                  direction="column"
+                  {...getRootProps()}
                   sx={{
                     border: `1px dashed ${theme.palette.secondary.main}`,
                     padding: "5px",
@@ -77,8 +87,10 @@ const InputFileUpload: React.FC<IFormInputProps> = ({
                     justifyContent: "center",
                   }}
                 >
-                  <Box {...getInputProps()} />
-                  <Button fullWidth disableTouchRipple
+                  <input {...getInputProps()} style={{ display: "none" }} />
+                  <Button
+                    fullWidth
+                    disableTouchRipple
                     sx={{
                       textTransform: "none",
                       "&:hover": {
@@ -110,23 +122,28 @@ const InputFileUpload: React.FC<IFormInputProps> = ({
               {fileValue.length > 0 && (
                 <Grid mt={2}>
                   {fileValue.map((file, index) => (
-                    <Grid container wrap="nowrap" p={1} key={index}
+                    <Grid
+                      container
+                      wrap="nowrap"
+                      p={1}
+                      key={index}
                       sx={{
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "space-between",
                       }}
                     >
-                      <Grid item
+                      <Grid
+                        item
                         sx={{
                           display: "flex",
-                          alignItems: "center"
+                          alignItems: "center",
                         }}
                       >
                         <UploadFileIcon
                           sx={{
                             marginRight: "10px",
-                            color: "primary.main"
+                            color: "primary.main",
                           }}
                         />
                         <Box>
@@ -137,7 +154,9 @@ const InputFileUpload: React.FC<IFormInputProps> = ({
                         </Box>
                       </Grid>
                       <Grid item>
-                        <IconButton onClick={() => handleFileDelete(index, false)}>
+                        <IconButton
+                          onClick={() => handleFileDelete(index, false)}
+                        >
                           <ClearIcon />
                         </IconButton>
                       </Grid>
@@ -148,36 +167,45 @@ const InputFileUpload: React.FC<IFormInputProps> = ({
               {invalidFiles.length > 0 && (
                 <Grid>
                   {invalidFiles.map((file, index) => (
-                    <Grid container p={1} key={index}
+                    <Grid
+                      container
+                      p={1}
+                      key={index}
                       sx={{
                         display: "flex",
                         alignItems: "center",
-                        justifyContent: "space-between"
+                        justifyContent: "space-between",
                       }}
                     >
-                      <Grid item
+                      <Grid
+                        item
                         sx={{
                           display: "flex",
-                          alignItems: "center"
+                          alignItems: "center",
                         }}
                       >
                         <UploadFileIcon
                           sx={{
                             marginRight: "10px",
-                            color: "error.main"
+                            color: "error.main",
                           }}
                         />
                         <Box>
                           <Typography sx={{ color: "error.main" }}>
                             Upload failed
                           </Typography>
-                          <Typography variant="caption" sx={{ color: "error.main" }}>
+                          <Typography
+                            variant="caption"
+                            sx={{ color: "error.main" }}
+                          >
                             {file.reason}
                           </Typography>
                         </Box>
                       </Grid>
                       <Grid item>
-                        <IconButton onClick={() => handleFileDelete(index, true)}>
+                        <IconButton
+                          onClick={() => handleFileDelete(index, true)}
+                        >
                           <ClearIcon />
                         </IconButton>
                       </Grid>
@@ -194,5 +222,3 @@ const InputFileUpload: React.FC<IFormInputProps> = ({
 };
 
 export default InputFileUpload;
-
-
