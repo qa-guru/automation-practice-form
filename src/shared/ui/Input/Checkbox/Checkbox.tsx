@@ -5,7 +5,7 @@ import {
   FormGroup,
   Checkbox,
   FormLabel,
-  FormControl
+  FormControl,
 } from "@mui/material";
 import { IFormInputProps } from "../Input.types";
 
@@ -14,7 +14,7 @@ const InputCheckbox: React.FC<IFormInputProps> = ({
   control,
   setValue,
   label,
-  content
+  content,
 }) => {
   const [selectedValues, setSelectedValues] = useState<string[]>([]);
 
@@ -28,7 +28,11 @@ const InputCheckbox: React.FC<IFormInputProps> = ({
             control={
               <Checkbox
                 onChange={handleChange(value)}
-                inputProps={{ ...({ "data-testid": `${name}` } as any) }}
+                inputProps={
+                  { "data-testid": `${name}` } as React.InputHTMLAttributes<
+                    HTMLInputElement
+                  >
+                }
               />
             }
             label={value}
@@ -43,9 +47,11 @@ const InputCheckbox: React.FC<IFormInputProps> = ({
     checked: boolean
   ) => {
     if (checked) {
-      setSelectedValues(prevState => [...prevState, value]);
+      setSelectedValues((prevState) => [...prevState, value]);
     } else {
-      setSelectedValues(prevState => prevState.filter(item => item !== value));
+      setSelectedValues((prevState) =>
+        prevState.filter((item) => item !== value)
+      );
     }
   };
 
